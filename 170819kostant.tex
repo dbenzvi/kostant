@@ -1,0 +1,1593 @@
+
+\documentclass{amsart}
+
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+
+\usepackage{amsmath}%
+\usepackage{todonotes}
+
+%\usepackage[mathcal]{euscript}
+
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+\usepackage{bm}
+
+
+\usepackage{mathabx}
+\usepackage{rotating}
+\usepackage[all,cmtip]{xy}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{bbm}
+\usepackage{stmaryrd}
+\usepackage{tensor}
+\usepackage{wasysym}
+
+%------------------------------------------------------------
+% Theorem like environments
+%
+
+\newtheorem{dummy}{dummy}[section]              
+\newtheorem{lemma}[dummy]{Lemma}
+\newtheorem{theorem}[dummy]{Theorem}
+\newtheorem{corollary}[dummy]{Corollary}
+\newtheorem{proposition}[dummy]{Proposition}
+\newtheorem{question}[dummy]{Question}
+\newtheorem{conjecture}[dummy]{Conjecture}
+\newtheorem{assumption}[dummy]{Assumption}
+\theoremstyle{definition}                                  
+\newtheorem{definition}[dummy]{Definition}
+\newtheorem{example}[dummy]{Example}
+\newtheorem{remark}[dummy]{Remark}
+\newtheorem{notation}[dummy]{Notation}
+\newtheorem{convention}[dummy]{Convention}
+\newtheorem{defn}[dummy]{Definition}
+
+
+%---Word Symbols
+
+\newcommand{\Bord}{\mathbf{Bord}}
+\newcommand{\Cob}{\mathbf{Cob}}
+\newcommand{\Alg}{\mathbf{Alg}}
+\newcommand{\Vect}{\mathbf{Vect}}
+\newcommand{\vect}{\mathbf{vect}}
+\newcommand{\Fam }{\mathbf{Fam}}
+\DeclareMathOperator{\Aut }{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\newcommand{\Cov}{\mathcal Cov}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\HOM}{\mathcal{H}om}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\End}{End}
+\newcommand{\Sum}{\mathrm{Sum}}
+\DeclareMathOperator{\colim}{colim}
+\newcommand{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Sing}{Sing}
+\newcommand{\Space}{\mathbf{Space}}
+\newcommand{\im}{im}
+\newcommand{\Mod}{\mathbf{Mod}}
+\newcommand{\module}{-\mathrm{mod}}
+\newcommand{\Comm}{\mathbf{Comm}}
+\newcommand{\Perf}{\mathrm{Perf}}
+\newcommand{\Coh}{\mathrm{Coh}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Lie}{Lie}
+\newcommand{\QC}{QC}
+\newcommand{\Spin}{Spin}
+\newcommand{\Ab}{\mathcal A b}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Rep}{Rep}
+\newcommand{\Ad}{Ad}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Vol}{Vol}
+\newcommand{\DGCat}{\mathbf{DGCat}}
+\newcommand{\Perv}{\mathbf{Perv}}
+\newcommand{\simple}{{sim}}
+\newcommand{\dgmod}{\mathrm{dgmod}}
+\newcommand{\BAR}{\mathbf{Bar}}
+\newcommand{\Tot}{\mathbf{Tot}}
+
+
+%----Misc
+
+\newcommand{\too}{\longrightarrow}
+\newcommand{\Id}{Id}
+\newcommand{\sr}{\stackrel}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\aff}{\textit{aff}}
+\newcommand{\fs}{\backslash}
+\newcommand{\bs}{\backslash}
+\newcommand{\Disc}{Disc}
+\newcommand{\ls}[2]{\tensor*[^{#1 }]{{#2}}{}}
+\newcommand{\lrsub}[3]{\tensor*[_{#1}]{{#2}}{_{#3}}}
+\newcommand{\lrsubsuper}[5]{\tensor*[_{#1} ^{#2}]{{#3}}{_{#4} ^{#5}}}
+\newcommand{\lsub}[2]{\tensor*[_{#1}]{#2}{}}
+\newcommand{\GIT}{{/\! /}}
+\newcommand{\bomega}{\bm{\omega}}
+\newcommand{\dw}{\dot{w}}
+
+%----TFT
+\newcommand{\CUP}{\mathrm{Cup}}
+\newcommand{\CAP}{\mathrm{Cap}}
+\newcommand{\PANTS}{\mathrm{Pants}}
+\newcommand{\COPANTS}{\mathrm{CoPants}}
+
+%----Spin Hurwitz stuff
+
+\newcommand{\MSpin}{MSpin}
+\newcommand{\KO}{ KO}
+\newcommand{\MTSpin}{\mathrm MTSpin}
+\newcommand{\SP}{\mathrm{SP}}
+\newcommand{\OP}{\mathrm{OP}}
+\newcommand{\Cl}{\mathcal C \! \ell}
+\newcommand{\bmu}{{\bm{\mu}}}
+\newcommand{\bnu}{{\bm{\nu}}}
+\newcommand{\cov}{\mathrm{cov}}
+
+%----Character Theory Stuff
+\newcommand{\Ch}{\bD\mathrm{Ch}}
+\DeclareMathOperator{\RES}{{\bf Res}}
+\DeclareMathOperator{\IND}{{\bf Ind}}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Res}{Res}
+\newcommand{\ind}{\mathrm{ind}}
+\newcommand{\res}{\mathrm{res}}
+\newcommand{\hc}{hc}
+\newcommand{\ch}{ch}
+\newcommand{\ad}{\mathrm{ad}}
+\newcommand{\HC}{HC}
+\newcommand{\CH}{CH}
+\newcommand{\St}[2]{{\underline{\mathfrak{#1}}  \! \cap \! \underline{\mathfrak{#2}}}}
+\newcommand{\Stw}[3]{{\underline{\mathfrak{#1}}  \! \overset{#3}{\cap} \! \underline{\mathfrak{#2}}}}
+\newcommand{\Stprime}{P^\circ \! \overset{W(L)}{\cap} \! P^\circ}
+\DeclareMathOperator{\ST}{{\bf I}}
+\DeclareMathOperator{\STt}{{I}}
+\newcommand{\Stein}{\mathcal{S}t}
+\newcommand{\st}{{st}}
+\newcommand{\Flag}{\mathcal F\ell}
+\newcommand{\Spr}{Spr}
+\newcommand{\Orb}{\bD\mathrm{Orb}}
+\newcommand{\cusp}{Cusp}
+\newcommand{\Bun}{\mathrm{Bun}}
+\newcommand{\GS}[1]{{{#1}^\circ}}
+\newcommand{\Fl}[1]{\mathcal F\ell_{#1}}
+\newcommand{\tcU}{\widetilde{\cU}}
+\newcommand{\Ql}{\overline{\mathbb Q}_\ell}
+\newcommand{\Loc}{\mathcal Loc}
+\newcommand{\Corr}{Corr}
+\newcommand{\Four}{\mathbb{F}}
+\newcommand{\reg}{\mathrm{reg}}
+
+
+%---Overline letters
+
+\newcommand{\oG}{\overline{G}}
+\newcommand{\oL}{\overline{L}}
+
+%---Letters with tilde
+
+\newcommand{\tG}{\widetilde{G}}
+\newcommand{\tB}{\widetilde{B}}
+\newcommand{\tP}{\widetilde{P}}
+
+%----Frak letters
+
+\newcommand{\fc}{\mathfrak{c}}
+\newcommand{\fk}{\mathfrak{k}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fgx}{\mathfrak{g}^\star}
+
+
+\newcommand{\fh}{\mathfrak{h}}
+\newcommand{\ft}{\mathfrak{t}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fu}{\mathfrak{u}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fv}{\mathfrak{v}}
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fK}{\mathfrak{K}}
+\newcommand{\fL}{\mathfrak {L}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fS}{\mathfrak{S}}
+\newcommand{\fD}{\mathfrak{D}}
+\newcommand{\fX}{\mathfrak{X}}
+\newcommand{\fY}{\mathfrak{Y}}
+\newcommand{\fz}{\mathfrak{z}}
+\newcommand{\fl}{\mathfrak{l}}
+\newcommand{\fq}{\mathfrak{q}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\ffi}{\mathfrak{i}}
+\newcommand{\fj}{\mathfrak{j}}
+
+%---Calligraphic Letters
+
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cJ}{\mathcal J}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cY}{\mathcal Y}
+\newcommand{\cZ}{\mathcal Z}
+
+%---Bold Letters
+
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bM}{\mathbf{M}}
+%---Blackboard Bold Letters
+
+\newcommand{\A}{\mathbb A}
+\newcommand{\B}{\mathbb B}
+\newcommand{\C}{\mathbb C}
+\newcommand{\D}{\mathbb D}
+\newcommand{\E}{\mathbb E}
+\newcommand{\F}{\mathbb F}
+\newcommand{\G}{\mathbb G}
+\newcommand{\bbH}{\mathbb H}
+\newcommand{\I}{\mathbb I}
+\newcommand{\J}{\mathbb J}
+\newcommand{\K}{\mathbb K}
+\newcommand{\bL}{\mathbb L}
+\newcommand{\M}{\mathbb M}
+\newcommand{\N}{\mathbb N}
+\newcommand{\bO}{\mathbb O}
+\newcommand{\bP}{\mathbb P}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\bS}{\mathbb S}
+\newcommand{\T}{\mathbb T}
+\newcommand{\U}{\mathbb U}
+\newcommand{\V}{\mathbb V}
+\newcommand{\W}{\mathbb W}
+\newcommand{\X}{\mathbb X}
+\newcommand{\Y}{\mathbb Y}
+\newcommand{\Z}{\mathbb Z}
+
+\newcommand{\wt}{\widetilde}
+%----Underline letters
+\newcommand{\uG}{{\underline{G}}}
+\newcommand{\uB}{\underline{B}}
+\newcommand{\uP}{\underline{P}}
+\newcommand{\uU}{\underline{U}}
+\newcommand{\uFl}{\underline{Fl}}
+\newcommand{\uH}{\underline{H}}
+\newcommand{\uW}{\underline{W}}
+\newcommand{\ug}{\underline{\mathfrak{g}}}
+\newcommand{\ul}{\underline{\mathfrak{l}}}
+\newcommand{\up}{\underline{\mathfrak{p}}}
+\newcommand{\uu}{\underline{\mathfrak{u}}}
+\newcommand{\uq}{\underline{\mathfrak{q}}}
+\newcommand{\um}{\underline{\mathfrak{m}}}
+\newcommand{\uv}{\underline{\mathfrak{v}}}
+\newcommand{\uh}{\underline{\mathfrak{h}}}
+\newcommand{\ub}{\underline{\mathfrak{b}}}
+\newcommand{\uz}{\underline{\mathfrak{z}}}
+\newcommand{\ut}{\underline{\mathfrak{t}}}
+\newcommand{\ucN}{\underline{\mathcal{N}}}
+\newcommand{\ucO}{\underline{\mathcal{O}}}
+
+
+\newcommand{\NGN}{\quot{N}{G}{N}}
+\newcommand{\XYX}{X\times_Y X}
+\newcommand{\GGG}{G\backslash G_{dR}/G}
+\newcommand{\ti}{\times}
+\newcommand{\ot}{\otimes}
+\newcommand{\oo}{\infty}
+\newcommand{\DD}{\mathbb D}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\Tr}{\mathcal Tr}
+\newcommand{\ftr}{\mathfrak tr}%----Bold letters
+\newcommand{\bA}{\mathbf{A}}
+
+
+
+\def\fc{\mathfrak c}
+\def\fC{\mathfrak C}
+\def\fZ{\mathfrak Z}
+\def\fn{\mathfrak n}
+\def\fb{\mathfrak b}
+\def\gl{{\mathfrak g}{\mathfrak l}}
+\def\ft{\mathfrak t}
+
+
+\newcommand{\actson}{\circlearrowright}
+
+
+\newcommand{\Cx}{{\C^\times}}
+\def\Gv{{G^{\vee}}}
+\def\cGr{{\cG r^{\vee}}}
+\def\cDv{\breve{\cD}}
+\def\Dhol{\cDv_{hol}}
+
+\def\uGr{\underline{Gr}}
+\def\uFl{\underline{Fl}}
+
+\def\Gm{\G_m}
+\def\fgxr{\mathfrak g^{\ast,r}}
+\def\fhx{\mathfrak h^\ast}
+\def\fgx{\mathfrak g^\ast}
+\def\fg{\mathfrak g}
+
+\newcommand{\inv}{{}^{-1}}
+\newcommand{\mc}{\mathcal}
+\newcommand{\ol}{\overline}
+%------- From Bezrukavnikov and Yun
+\makeatletter
+\newcommand*\leftdash{\rotatebox[origin=c]{-45}{$\dabar@\dabar@\dabar@$}}
+\newcommand*\rightdash{\rotatebox[origin=c]{45}{$\dabar@\dabar@\dabar@$}}
+\makeatother
+
+\newcommand{\quot}[3]{{#1}\backslash{#2}/{#3}} %Makes a double quotient
+\newcommand{\wqw}[3]{{#1}\leftdash{#2}\rightdash{#3}} %Double quotient with
+\newcommand{\wq}[2]{{#1}\leftdash{#2}}
+\newcommand{\qw}[2]{{#1}\rightdash{#2}}
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+\newcommand{\geom}[1]{{#1}\otimes_k\bar{k}}
+\newcommand{\conv}[1]{\stackrel{#1}{\ast}}
+\newcommand{\twtimes}[1]{\stackrel{#1}{\times}}
+\newcommand{\isom}{\xrightarrow{\sim}}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+\newcommand{\Ltimes}{\stackrel{\bL}{\otimes}}
+
+
+\newcommand{\Ngo}{Ng\widehat{o}}
+\newcommand{\insfig}[2]{
+\begin{center}
+\includegraphics[height=#1]{#2}
+\end{center}
+}
+
+%------ From Ben-Zvi and Nadler
+\newcommand{\adjquot}{{/_{\hspace{-0.2em}ad}\hspace{0.1em}}}
+
+\newcommand{\SG}[1]{{\color{red}Sam: #1}}
+\newcommand{\BZ}[1]{{\color{blue}David BZ: #1}}
+
+\title{Central Actions and $\cW$-Categories}
+
+\author{David Ben-Zvi} \address{Department of Mathematics\\University
+  of Texas\\Austin, TX 78712-0257} \email{benzvi@math.utexas.edu}
+\author{Sam Gunningham}\address{Department of Mathematics\\University
+  of Texas\\Austin, TX 78712-0257} \email{gunningham@math.utexas.edu}
+%\author{David Nadler} \address{Department of Mathematics\\University
+ % of California\\Berkeley, CA 94720-3840}
+%\email{nadler@math.berkeley.edu}
+
+\begin{document}
+
+\begin{abstract}
+We prove a categorical analog of Kostant's identification of the center $\cZ=\cZ(U\fg)$ of the enveloping 
+algebra of a reductive Lie algebra with the Whittaker Hecke algebra, i.e., the finite $\cW$-algebra. Namely we show that the Whittaker Hecke category, or $\cW$-category, associated to a reductive group is symmetric monoidal (answering a question of Arinkin, Drinfeld and Gaitsgory), and acts centrally on the monoidal category of Harish Chandra bimodules $\HC_G$ (or equivalently of $\cD$-modules on $G$), lifting the action of $\cZ$ (quantum characteristic polynomial map). This action provides a notion of Langlands parameters for categorical representations of $G$, a categorical integration of quantum Hamiltonian systems arising from Harish-Chandra Laplacians (the action of $\cZ$), and a new commutative symmetry of homology of character varieties of surfaces. 
+
+We deduce the result from a general symmetry principle for convolution algebras: the category of modules for a convolution algebra carries a symmetric monoidal structure, and acts centrally on the convolution category of sheaves. In particular modules for the nil-Hecke algebra for any Kac-Moody algebra act centrally on the corresponding Hecke category. We apply this principle to the spherical quotient of the affine Grassmannian for the Langlands dual group $\Gv$, where the renormalized Satake theorem of Bezrukavnikov-Finkelberg identifies the respective categories with the Whittaker Hecke category and Harish Chandra bimodules. 
+ \end{abstract}
+\maketitle
+
+\section{Introduction}
+
+
+\begin{theorem}[Informal]
+Let $X$ denote a stack and $\cG\actson X$ a groupoid acting on $X$. Let $H=(\omega(\cG),\ast)$ denote the associated convolution algebra, considered as a monad on $\cC=Shv(X)$. Let $\cH=(Shv(\cG),\ast)$ denote the associated convolution category, equipped with the diagonal action of $(Shv(X),\otimes)$. Then there is a symmetric monoidal structure on $\cW=\Mod_H$ compatible with the forgetful functor to $\cC$, and the diagonal action $\cC\to \cH$ lifts to a central action of $\cW\to \cZ(\cH)$ with a monoidal left inverse:
+
+$$\xymatrix{\cW\ar[r]^{E_2}\ar[d]_-{E_\infty}& \cZ(\cH) \ar@/_1pc/_-{E_1}[l]  \ar[d]^{E_1}\\
+\cC \ar[r]_{E_1} & \cH}$$
+\end{theorem}
+
+
+\subsection{Toy examples} Let us first illustrate the result with two toy examples.
+
+$\bullet$ Let $\pi:X\to Y$ denote a map of finite sets, and $\cG=\XYX$. In this case the convolution algebra $(H=\CC[\cG],\ast)$ is the algebra of $|X|$ by $|X|$ block-diagonal matrices (with blocks labeled by $Y$), which is Morita equivalent to the commutative algebra $\CC[Y]$. We also consider the convolution category $(\cH=Vect(\XYX),\ast)$. In this case the inclusion of block-scalar matrices $Vect(Y)\hookrightarrow Vect(\XYX)$ identifies 
+$$\xymatrix{\Mod_H\simeq Vect(Y)\ar[rr]^-{\sim}&& \cZ(Vect(\XYX))}$$ with the Drinfeld center of $(Vect(\XYX),\ast)$, categorifying the familiar identification of block-scalar matrices $\CC[Y]$ as the center of block-diagonal matrices $\CC[\XYX]$. 
+
+$\bullet$ Let $G$ denote a finite group, and $X=pt\to Y=BG$, so that $G\simeq \XYX$. In this case the convolution algebra $H=(\CC[G],\ast)$ is the group algebra, and $\Mod_H=Rep(G)$ is the symmetric monoidal category of representations. The Drinfeld center of the monoidal category $(Vect(G),\ast)$ is now the braided tensor category $Vect(G/G)$, which contains $Rep(G)\simeq Vect(pt/G)$ as the tensor subcategory of equivariant vector bundles supported on the identity. The latter is in fact a Lagrangian subcategory of $Vect(G/G)$ in the sense of~\cite{DGNO}. We expect our general construction provides (derived analogues of) Lagrangian subcategories as well. The action of $Vect(G)$ on a $Vect(pt)=Vect$ induces an action of its center
+$$\xymatrix{\cZ(Vect(G))=Vect(G/G)\ar[rr]&&End_{Vect(G)}(Vect)\simeq Rep(G)}$$
+which provides the desired left inverse.
+
+
+\subsection{Kac-Moody groups}
+
+Let $\uG$ denote a Kac-Moody group, with Borel and Cartan subgroups $\uB$, $\uH$ and Cartan Lie algebra $\fh$.
+The flag variety $\uG/\uB$ is an ind-projective ind-scheme of ind-finite type. We let $\cG=\uB\backslash \uG/\uB$ denote the corresponding
+``Hecke" groupoid acting on $pt/\uB$. Let $H_\uG=H_*(\uB\backslash \uG/\uB)$ denote the nil-Hecke algebra associated to $\uG$, and $\cH_\uG=\Dhol(\uB\backslash \uG/\uB)$ the Iwahori-Hecke category.
+
+%/_-{E_2}[l] 
+
+\begin{theorem}
+There is a natural symmetric monoidal structure on modules $\Mod_{H_\uG}$ for the nil-Hecke algebra of $\uG$, compatible with the forgetful functor to $\Mod_{H^*_{\uB}(pt)=H^*_{\uH}(pt)}\simeq \CC[\fhx]$, and 
+the action $\CC[\fhx]\to \cH_{\uG}$ lifts to a central action $\Mod_{H_{\uG}}\to \cZ(\cH_\uG)$ with an $E_2$ section:
+
+$$\xymatrix{\Mod_{H_{\uG}}\ar[r]\ar[d]& \cZ(\cH_\uG) \ar@/_1pc/_{}[l]\ar[d]\\
+\CC[\fhx] \ar[r] & \cH_\uG}$$
+\end{theorem}
+
+\begin{example} $G$ reductive, $X=pt/B$, $Y=pt/G$, $\cG=B\backslash G/B$. In this case $H=C_*(\cG)$ is the nil-Hecke algebra, acting on $\Dhol(X)\simeq \Mod_{C^*(BT)}$ by Demazure operators, with the category of $H$-modules identified with $\Dhol(Y)=\Mod_{C^*(pt/G)}$. The result is the linearity of the finite Hecke category $\cH=\Dhol(B\backslash G/B)$ over the $G$-equivariant cohomology ring. 
+\end{example}
+
+
+
+\subsection{Coxeter groups}
+
+Let $W$ denote a Coxeter group and $\fh$ its reflection representation. For $w\in W$ we let $\Gamma_w\subset \fh\times \fh$ denote the graph of the corresponding reflection. Let $$\Gamma_W=\coprod_{w\in W} \Gamma_w.$$ Then $\cG=\Gamma_W$ is an ind-proper groupoid acting on the scheme $\fh$. 
+
+Let $H_W=\Gamma(\omega_\cG)$ denote the corresponding (ind-coherent) Hecke algebra. It is a variant of the nil-Hecke algebra~\cite{KK} associated to $W$. 
+\BZ{Do we know if $H_W$ is the nil-Hecke algebra outside of the finite case??}
+Let $\cH_W=\cQ^!(\Gamma_W)$ denote the ind-coherent Hecke category. It is closely related to the category of Soergel bimodules associated to $W$.
+
+
+
+
+\begin{theorem}
+There is a natural symmetric monoidal structure on modules $\Mod_{H_W}$ for the Coxeter Hecke algebra compatible with the forgetful functor to $\CC[\fhx]$, and 
+the action $\CC[\fhx]\to \cH_{W}$ on the Coxeter Hecke category lifts to a central action $\Mod_{H_W}\to \cZ(\cH_W)$ with an $E_2$ section:
+
+$$\xymatrix{\Mod_{H_W}\ar[r]\ar[d]& \cZ(\cH_W)\ar@/_1pc/_{}[l]\ar[d]\\
+\CC[\fhx] \ar[r] & \cH_W}$$
+\end{theorem}
+
+
+
+
+
+
+
+
+
+\subsection{Acknowledgments} 
+This project grew out of a joint project with David Nadler (part of which appeared as~\cite{character2}), and we would like to express our deep acknowledgment of his contributions. In particular the idea to identify a symmetric monoidal structure deformation quantization of the group-scheme of regular centralizers and a quantization of the Ng\^o action is due to him. 
+
+We are greatly indebted to Dario Beraldo and Sam Raskin for their help with the formalism of renormalized D-modules.
+We would also like to thank Geoffroy Horel for his assistance with formality of Hopf algebras, and Dima Arinkin and Dennis Gaitsgory for their interest and useful discussions. 
+DBZ would like to acknowledge the National Science Foundation for its support through individual grants DMS-1103525 and DMS-1705110.
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Sheaf Theory Formalism}
+
+We will study monoidal properties of categories of sheaves on stacks. The geometric spaces that appear are ind-algebraic stacks and groupoids (Section~\ref{context}). We require a theory of sheaves that attaches to a stack $X$ a presentable DG category $Shv(X)$ with continuous pull-back and pushforward functors $p_*,p^!$ for maps $p:X\to Y$ of ind-finite type, satisfying base change and an adjunction $(p_*,p^!)$ in the case that $p$ is ind-proper.
+
+Two important examples of such a theory of sheaves, developed in~\cite{GR}, are the theory of ind-coherent sheaves $IndCoh(X)$ and the theory of $\cD$-modules $\cD(X)$. Their properties are summarized in the following:
+
+\medskip
+
+\begin{theorem}~\cite[Theorem III.3.5.4.3, III.3.6.3]{GR} \label{GR sheaf theory}
+There is a uniquely defined right-lax symmetric monoidal functor $IndCoh$ from the $(\infty,2)$-category whose objects are {\em laft} prestacks, morphisms are correspondences with vertical arrow ind-inf-schematic, and 2-morphisms are ind-proper and ind-inf-schematic, to the $(\infty,2)$ category of DG categories with continuous morphisms.
+\end{theorem}
+
+
+
+\medskip
+
+The theorem encodes a tremendous amount of structure. Let us highlight some salient features useful in practice.
+The theorem assigns a symmetric monoidal dg category $IndCoh(X)$ to any reasonable (locally almost of finite type) stack. The symmetric monoidal structure, the $!$-tensor product, is induced by $!$-pullback along diagonal maps. For an arbitrary morphism $p:X\to Y$ there is a continuous symmetric monoidal pullback functor $p^!:IndCoh(Y)\to IndCoh(X)$, while for $p$ schematic or ind-schematic there is a continuous pushforward $p_*:IndCoh(X)\to IndCoh(Y)$, which satisfies base change with respect to $!$-pullbacks. Moreover for $p$ ind-proper, $(p_*,p^!)$ form an adjoint pair. Furthermore, the formalism of {\em inf-schemes} greatly extends the validity of the construction. In particular the same formal properties holds for the theory of $\cD$-modules, defined by the assignment $X\mapsto \cD(X)=IndCoh(X_{dR})$, ind-coherent sheaves on the de Rham space of X.
+
+
+%In addition,~\cite[Corollary III.3.6.1.3]{GR} endows the functor $IndCoh$ on the full subcategory of ind-inf-schemes with a symmetric monoidal structure.
+
+
+For our applications we require a minor variation, the theory of ind-holonomic $\cD$-modules $\Dhol(X)$, the main instance of which is the renormalized Satake category $\Dhol(\uGr)$ studied in~\cite{AG} (and, implicitly,~\cite{BezFink}). We will explain the appropriate modifications of the formalism of~\cite{GR} needed to establish the minimal functoriality of ind-holonomic $\cD$-modules we will require.
+
+
+
+\subsubsection{Geometric context}\label{context}
+We adopt the following geometric conventions: all schemes will be of almost finite type, and all algebraic stacks will be {\em laft} QCA stacks, as studied in particular in~\cite{finiteness}. In other words, an algebraic stack $X$ is a prestack whose diagonal is affine and which admits a smooth and surjective map from an affine scheme of almost finite type. 
+
+By an {\em ind-algebraic stack} we refer to a prestack $X$ which is equivalent to a filtered colimit $X=\lim_{\rightarrow} X_i$ of algebraic stacks under closed embeddings.
+
+
+In our applications $X$ will be realized as the quotient of an ind-scheme of ind-finite type by an affine algebraic group. The main example of interest is the equivariant affine Grassmannian $$X=\uGr=G(\cO)\backslash G(\cK)/G(\cO)$$ of a reductive group $G$.
+
+
+\subsection{Motivating Ind-Holonomic $\cD$-modules}\label{d-modules}
+
+First recall (see e.g.~\cite{finiteness}) that for a scheme of finite type we have an equivalence $\cD(X)\simeq \Ind \cD_{coh}(X)$, and that we have a full stable subcategory $\cD_{coh,hol}\subset \cD_{coh}(X)$. Thus we have a fully faithful embedding $$\Dhol(X):=\Ind \cD_{coh,hol}(X)\subset \cD(X)$$ of ind-holonomic $\cD$-modules into all $\cD$-modules. Holonomic $\cD$-modules are preserved by $!$-pullback and $*$-pushforward for finite type morphisms, and carry a symmetric monoidal structure through $!$-tensor product for which $!$-pullback is naturally symmetric monoidal.
+
+This picture persists for $X$ an ind-scheme of ind-finite type $X=\lim_{\rightarrow} X_i$, for example the affine Grassmannian $Gr=G(\cK)/G(\cO)$. The $(i_*,i^!)$ adjunction for a closed embeddings provides the alternative descriptions $$\cD(X)\simeq \lim_{\leftarrow,(-)^!} \cD(X_i)\simeq \lim_{\rightarrow,(-)_*} \cD(X_i).$$ As a result (by a general lemma of~\cite{DrG2}) $\cD(X)$ is compactly generated by coherent $\cD$-modules, which by definition are the pushforwards of coherent $\cD$-modules on the finite type closed subschemes $X_i$, and include the similarly defined holonomic $\cD$-modules. Note that with this definition the pullback of a holonomic $\cD$-module by an ind-finite type morphism (for example, the dualizing complex of an ind-scheme) is ind-holonomic but not necessarily holonomic (i.e. compact). 
+
+For $X$ an algebraic stack, the situation (as studied in detail in~\cite{finiteness}) changes: coherent (and in particular holonomic) $\cD$-modules, defined by descent using a smooth atlas, are no longer compact in general. The category $\cD(X)$ is compactly generated by {\em safe} objects, which are coherent objects satisfying a restriction on the action of stabilizers (in the case of quotient stacks). One can thus measure the lack of safety of $X$ by the difference between $\cD(X)$ and the category $\cDv(X):=\Ind \cD_{coh}(X)$ of {\em ind-coherent} or {\em renormalized} $\cD$-modules. This is analogous to the difference between quasicoherent and ind-coherent sheaves on a derived stack measuring its singularities, with safe (respectively, coherent) $\cD$-modules taking on the role of perfect (respectively, coherent) complexes of $\cO$-modules. 
+
+
+\begin{example}Suppose $X=pt/G$ is the classifying stack of a reductive group. Let $\Lambda=C_*G\simeq \CC[\fg^*[-1]]^G$ and $S=C^*X\simeq \CC[\fg[2]]^G$ be the corresponding Koszul dual exterior and symmetric algebras. Then $$\cD(X)\simeq \Mod_{\Lambda}\simeq QC(\fg[2]//G)_0$$ is the completion of sheaves on the graded version of the adjoint quotient $\fg//G\simeq \fh//W$ at the origin. On the other hand we have $$\Dhol(X)=\Dhol(X)\simeq \Ind(Coh \Lambda)\simeq \Mod_S\simeq QC(\fg[2]//G)$$ is the ``anticompleted" version of the same category. 
+
+This can also be described in terms of the corresponding homotopy type $X_{top}$ (as a constant prestack) and $\fX=\Spec C^*(X)$ the corresponding coaffine stack. We then have equivalences $$\cD(X)\simeq QC(X_{top})\simeq QC(\fX).$$ 
+\SG{Is $QC$ of the coaffine stack $\fX = \Spec(S)$ really $\Lambda$-mod, not $S$-mod?}
+\BZ{I'm pretty sure the answer is yes.. $\Mod_\Lambda$ is a t-complete category, like QC of any stack, while its anticompletion is shown by Jacob to be modules for the corresponding cosimplicial ring. Though maybe bringing in coaffine stacks is just a distraction in the current version?} 
+On the other hand we have the following description of renormalized sheaves:
+$$\Dhol(X) \simeq \Mod_{C^*(X)}.$$
+In particular $\cD(X)$ is the completion of $\Dhol(X)$. 
+\end{example}
+
+We will be interested in a combined setting of ind-algebraic stacks. In this setting the category $\Dhol(X)$ (defined formally in the next section) is identified with the Ind-category of (coherent) holonomic $\cD$-modules, which are pushforwards of holonomic $\cD$-modules on algebraic substacks. Thus ind-holonomic $\cD$-modules form a full subcategory of {\em ind-coherent} (or renormalized) $\cD$-modules 
+$\Dhol(X) = \Ind \cD_{coh}(X).$
+
+
+
+\begin{example}
+Our main motivating example is the equivariant affine Grassmannian $X=\uGr$. The {\em renormalized Satake category} $\Dhol(\uGr)$ of~\cite{AG} is a variant of the usual Satake category $\cD(\uGr)$
+which appears (implicitly) in the derived Satake correspondence of~\cite{BezFink}. It can be defined as the 
+ind-category $\Ind(Shv_{lc}(\uGr))$ of the category of {\em locally compact} sheaves on $\uGr$, i.e., equivariant sheaves on the affine Grassmannian for which the underlying sheaves are constructible (hence compact).
+In the language of $\cD$-modules, it is the Ind-category of the category of holonomic $\cD$-modules on $\uGr$ - note that (as in the previous example) all coherent $\cD$-modules on $\uGr$ are holonomic, in fact regular holonomic, hence identified with constructible sheaves. 
+The renormalized Satake theorem~\cite{BezFink,AG} is an equivalence of monoidal categories
+$$\Dhol(\uGr)=\Dhol(\uGr)\simeq IndCoh(\fg^{\vee}[2]/\Gv).$$ Dropping the renormalization of $\cD$-modules corresponds to imposing finiteness conditions on the right hand side.
+\end{example}
+
+%We have an adjunction
+%$$\xymatrix{\Xi: \cD(X)\ar[r]<.5ex> &\ar[l]<.5ex> \Dhol(X):\Psi}$$ with $\Xi:\cD(X)\subset \Dhol(X)$ exhibiting the full %subcategory $\cD(X)$ as a colocalization of $\Dhol(X)$. 
+
+
+
+\begin{remark}[Ind-constructible sheaves]
+The notion of ind-holonomic $\cD$-modules has a natural analog in the setting of l-adic sheaves or constructible sheaves in the analytic topology. Namely on a scheme $X$ the compact objects in $Shv(X)$ are the constructible sheaves, but this is no longer the case on a stack. A {\em  locally compact} sheaf on a stack $X$ is a sheaf whose stalks are perfect complexes -- i.e., whose pullback under any map $pt\to X$ is compact. We denote $Shv(X)_{lc}\subset Shv(X)$ the full subcategory of locally compact sheaves, and define the category $\breve{Shv}(X)$ of renormalized, or ind-constructible, sheaves as $\Ind Shv(X)_{lc}$. It has $Shv(X)$ as a colocalization:
+$$\xymatrix{\Xi: Shv(X)\ar[r]<.5ex> &\ar[l]<.5ex> \breve{Shv}(X):\Psi}$$ 
+For example for $X=Y/G$ a quotient stack, $\breve{Shv}(X)$ can be identified with the Ind category of $G$-equivariant constructible complexes on $Y$ in the sense of Bernstein--Lunts \cite{bernstein_equivariant_1994}. 
+
+The $!$-tensor structure on $Shv(X)$ respects locally compact objects, hence extends by continuity to define a symmetric monoidal structure on $\breve{Shv}(X)$, for which the functors $\Xi,\Psi$ upgrade to symmetric monoidal functors.
+
+When $X$ is a finite orbit stack (for example, a quotient stack $Y/G$ where $G$ acts on $Y$ with finitely many orbits) or an ind-finite orbit stack such as $\uGr$, every coherent complex on $X$ is regular holonomic. Thus, via the Riemann-Hilbert correspondence, $\Dhol(X)=\Dhol(X)\simeq \breve{Shv}(X)$. 
+\end{remark}
+
+\subsection{Formalism of ind-holonomic $\cD$-modules}
+
+Recall~\cite{GRcrystals,GR,dario,raskin} the construction of the contravariant functor of $\cD$-modules $\cD^!$ on ind-schemes. Namely we start with the functor $$\cD^!:AffSch^{f.t.,op}\to DGCat$$ of $\cD$-modules with $!$-pullback 
+on schemes of finite type as constructed e.g. in~\cite{GRcrystals,GR}. We then right Kan extend to ind-schemes of ind-finite type (or more generally to {\em laft} prestacks). 
+
+\begin{defn} The right-lax symmetric monoidal functor $\Dhol^!:QCA^{op}\to DGCat$ is defined as the (symmetric monoidal) 
+ind-construction 
+$$\xymatrix{QCA^{op} \ar[rr]^-{\cD_{coh,hol}^!} && DGCat^{sm} \ar[rr]^-{Ind} && DGCat}$$ applied to the subfunctor of $\cD^!$ defined by coherent holonomic $\cD$-modules.
+\end{defn}
+
+
+\begin{lemma}\label{QCA functoriality} For $p:X\to Y$ a finite type morphism of QCA stacks, we have continuous pullback and pushforward functors 
+$$\xymatrix{p_*:\Dhol(X)\ar[r]<.5ex>& \ar[l]<.5ex> \Dhol(Y): p^!}$$ satisfying base change. Moreover for $p:X\to Y$ a proper morphism, $(p_*,p^!)$ form an adjoint pair. 
+\end{lemma} 
+
+\begin{proof}
+Pullback and pushforward of holonomic $\cD$-modules on stacks under finite type morphisms remain holonomic. Hence the functors
+$$\xymatrix{p_*:\cD_{coh,hol}(X)\ar[r]<.5ex>& \ar[l]<.5ex> \cD_{coh,hol}(Y): p^!}$$
+extend by continuity to the ind-categories. The property of base-change can likewise be checked on the compact objects. 
+\end{proof}
+
+
+If we need to consider schemes beyond finite type, we first perform a left Kan extension to extend from affine schemes to all affines and then right Kan extend extend $\cD^!$ to all ind-schemes~\cite{raskin}. Another formulation~\cite{dario} is to consider schemes of pro-finite type or simply {\em pro-schemes}, schemes that can be written as filtered limits of schemes of finite type along affine smooth surjective maps. Again $\cD^!$ is extended from finite type schemes to pro-schemes as a left Kan extension, and then to ind-pro-schemes by a right Kan extension.
+
+We are interested in objects such as the equivariant affine Grassmannian $\uGr$, which is nearly but not quite an ind-finite type algebraic stack. Namely $\uGr$ is the inductive limit (under closed embeddings) of stacks of the form $X/K$ where $X$ is a scheme of finite type and $K$ ($G(\cO)$ in our setting) is an algebraic group acting on $X$ through a finite type quotient $K_i=K/K^i$ with pro-unipotent kernel. Thus $$X/K=\lim_{\leftarrow} X/K_i$$ is a projective limit of finite type algebraic stacks under morphisms which are gerbes for unipotent group schemes. In particular the category of $\cD$-modules on $X_i/K$ is equivalent to that of any of the finite type quotients $X/K_i$:
+
+
+
+
+ Thus we make the following more modest variant of the constructions in~\cite{dario, raskin}:
+
+\begin{defn} \begin{enumerate}
+\item By a stack nearly of finite type we refer to an algebraic stack expressible as a projective limit of QCA stacks under morphisms which are gerbes for unipotent group schemes.
+\item By an ind-nearly finite type stack, or simply {\em ind-stack}, we denote a prestack equivalent to an inductive limit of stacks nearly of finite type under closed embeddings. The symmetric monoidal category of ind-stacks is denoted $IndSt$.
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+The functor $\Dhol^!:IndSt^{op}\to DGCat$ on ind-stacks is defined by first left Kan extending $\Dhol^!$ from QCA stacks to stacks nearly of finite type, and then right Kan extending to ind-nearly finite type stacks.
+\end{defn}
+
+\begin{proposition} The functor $\Dhol^!$ admits a right-lax symmetric monoidal structure extending that previously defined on QCA stacks.
+\end{proposition}
+
+
+\begin{lemma} \begin{enumerate}
+\item For $\cX=\lim_\leftarrow X_n$ an inverse limit of stacks of finite type under unipotent gerbes, the functor $$\lim_{\leftarrow} \Dhol(X_n)\to \Dhol(X_i)$$ is an equivalence for any $i$. 
+\item The assertions of Lemma~\ref{QCA functoriality} extend to morphisms of nearly finite type stacks.
+\end{enumerate}
+\end{lemma}
+
+To calculate the abstractly defined functor $\Dhol$ on ind-stacks, we follow the strategy of~\cite{GR} (see also~\cite[Section 2]{GRindschemes}): 
+
+\begin{lemma}\label{inductive ind-holonomic}
+For $X$ an ind-stack, expressed as a filtered colimit of closed embeddings $i_n:X_n\hookrightarrow X$ with $X_n$ nearly of finite type, we have identifications $$\Dhol(X)\simeq \lim_{\leftarrow, i_{n}^!} \Dhol(X_n)\simeq \lim_{\rightarrow, i_{n,*}} \Dhol(X_n).$$
+\end{lemma}
+
+\begin{proof}
+The functor $\Dhol$ takes colimits in $IndSt$ to limits in $DGCat$. Hence for an ind-stack $X=\lim_{\leftarrow, i_n} X_n$ written as a colimit of nearly finite type stacks under closed embeddings, 
+we have an identification $\Dhol(X)\simeq \lim_{\rightarrow,i_n^!} \Dhol(X_n)$. Since the $X_n$ are nearly finite type stacks and $i_n$ are proper morphisms, we may apply proper adjunction to further identify the limit over the pullbacks with the colimit over their left adjoints,
+$\Dhol(X)\simeq \lim_{\leftarrow, i_{n*}} \Dhol(X_n)$ as desired. 
+\end{proof}
+
+
+\begin{proposition} \label{IndHol adjunction}
+ For $p:X\to Y$ an ind-finite type morphism in $IndSch$, we have continuous pushforward and pullback functors 
+$$\xymatrix{p_*:\Dhol(X)\ar[r]<.5ex>& \ar[l]<.5ex> \Dhol(Y): p^!}$$ satisfying base change. 
+For $p:X\to Y$ ind-proper, $(p_*,p^!)$ form an adjoint pair. 
+\end{proposition}
+
+\begin{proof}
+Let us write $Y$ as the filtered colimit of closed embeddings of nearly finite type substacks $t_n:Y_n\hookrightarrow Y$, and $s_n:X_n=X\times_Y Y_n \hookrightarrow X$. Then by hypothesis we can further decompose $X_n$ as the colimit of substacks $i_{m,n}:X_{m,n}\hookrightarrow X_n$ with $p_{m,n}:X_{m,n}\to Y_n$ finite type.
+
+A holonomic $\cD$-modules $\cF$ on $X$ can be represented as the pushforward of a holonomic $\cD$-module $\cF_{m,n}$ on some $X_{m,n}$. Hence $p_*\cF=p_{m,n*}\cF_{m,n}$ is holonomic. Thus pushforward on all $\cD$-modules restricts to a functor 
+$$p_*:\cD_{coh,hol}(X)\to \cD_{coh,hol}(Y)$$ which thus extends by continuity to the ind-categories $\Dhol$. 
+
+Pullback defines a functor $$p_{m,n}^!:\cD_{coh,hol}(Y_n)\to \cD_{coh,hol}(X_{m,n}),$$ and thus passing to ind-categories by continuity
+$$p_{m,n}^!:\Dhol(Y_n)\to \Dhol(X_{m,n}).$$ By Lemma~\ref{inductive ind-holonomic}, these functors assemble to a continuous functor to the inverse limit category and on to the target, 
+$$\xymatrix{\Dhol(Y_n)\ar[r]^-{p_n^!}& \Dhol(X_n)\ar[r]^-{s_{n,*}}& \Dhol(X)}$$ Finally by (finite type) base change the functors $s_{n,*}p_n^!\simeq p^!t_{n,*}$ assemble to a functor from the direct limit category $$\lim_{\rightarrow}\Dhol(Y_n)=\Dhol(Y)$$ to $\Dhol(X)$. The resulting functors inherit the base change property from their finite type constituents. 
+
+\end{proof}
+
+\begin{remark}[Bivariant functoriality] The key 2-categorical extension theorem of Gaitsgory-Rozenblyum, ~\cite[Theorem V.1.3.2.2]{GR}, allows one to define functors out of correspondence 2-categories given 1-categorical data, namely a functor (in our case $\Dhol^!$) satisfying an adjunction and base change property for a particular class of morphisms (in our case ind-proper morphisms). Thus we find that the functor $\Dhol^!:IndSt^{op}\to DGCat$ extends to a functor of $(\infty,2)$-categories
+$$\Dhol:Corr_{ind-f.t,ind-prop}^{ind-prop}(IndSt)\to DGCat^{(\infty,2)}.$$ 
+\end{remark}
+
+\section{Hecke algebras and Hecke categories} 
+
+In this section we describe a general formalism for constructing symmetric monoidal categories acting centrally on convolution categories. We work in the setting of ind-holonomic $\cD$-modules on ind-stacks described above, since our main example is the renormalized Satake category $\Dhol(\uGr)$ and more generally Hecke categories for Kac-Moody groups $\Dhol(\uP\backslash \uG/\uP)$. However the discussion of this section works identically when applied to the sheaf theories of ind-coherent sheaves $\QC^!$ or $\cD$-modules $\cD$ when restricted to {\em laft} prestacks, as in~\cite{GR}. 
+
+\subsection{Groupoids}
+
+\begin{definition} By an {\em ind-proper groupoid} we refer to a groupoid object $\cG\actson X$ in ind-stacks, with ind-proper source and target maps $\pi_1,\pi_2:\cG\to X$.
+\end{definition}
+
+More precisely, the groupoid object is given by a simplicial object $\cG_\bullet$ satisfying a Segal condition resulting in an identification of the simplices with iterated fiber products:
+ \begin{equation}\label{groupoid}
+ \xymatrix{\cdots \ar[r]<1ex> \ar[r]<.5ex> \ar[r] \ar[r]<-.5ex> \ar[r]<-1ex> &
+ \cG\times_X \cG\times_X \cG \ar[r]<.75ex> \ar[r]<.25ex> \ar[r]<-.25ex> \ar[r]<-.75ex> &
+ \cG\times_X \cG \ar[r]<.5ex> \ar[r] \ar[r]<-.5ex> &
+ \cG \ar[r]<.25ex> \ar[r]<-.25ex>&
+ X}
+ \end{equation}
+See~\cite[Sections II.2.5.1, III.3.6.3]{GR} for a discussion of ind-proper groupoid objects, and more generally Segal (or monoid) objects (to which all of our constructions apply equally). 
+\BZ{Not sure about what level of generality to take here - we never use the inverse map of the groupoid, so things apply equally well to monoid / category / Segal objects instead of groupoids, which is the generality that ~\cite{GR} take for convolution constructions. I have been sticking to groupoid since the word is more familiar and can say everything works in general - and also can speak of the mythical quotient $Y$ as a crutch then..}
+
+It will be psychologically convenient (but technically irrelevant) to think in terms of the (potentially very poorly behaved) quotient prestack $Y=|\cG_\bullet|=X/\cG$, so that $\cG_\bullet$ is identified with the \v{C}ech simplicial object $\{X\times_Y X\times_Y\cdots\times_Y X\}$.
+We denote $i=(\pi_1,\pi_2):\cG\to X\times X$.
+ 
+Our main example of an ind-proper groupoid will be the equivariant Grassmannian $\cG=\uGr$ acting on $X=pt/G(\cO)$, i.e., the \v{C}ech construction for the ind-proper, ind-schematic morphism $X=pt/G(\cO)\to Y=pt/G(\cK)$. 
+
+
+\subsection{Hecke algebras}
+We start with an ind-stack $X$ and the corresponding base category $\cC=\Dhol(X)$ of sheaves on $X$.
+
+Let $\cG\actson X$ denote an ind-proper groupoid as above, and $\pi_1,\pi_2:\cG\to X$ the ind-proper source and target maps (with $i=(\pi_1,\pi_2):\cG\to X\times X$), $\delta:X\to \cG$ the diagonal and $\pi:X\to Y=X/\cG$ the quotient stack, so $\cG\simeq \XYX$. Note that $Y$ may not be well behaved, so we avoid working directly with sheaves on $Y$.
+
+
+The groupoid $\cG$ defines a monad acting on $\cC=\Dhol(X)$ following the general mechanism discussed in~\cite[II.2.5.1, V.3.4]{GR} which we call the Hecke algebra $\uH$. The Hecke algebra is an algebra object structure on the functor $\pi_{2,*}\pi_1^!\simeq p^!p_*\in End(\cC)$. 
+
+\begin{definition} The $\cW$-category associated to the groupoid $\cG$ is the category $\cW=\Mod_{\uH}$ of $\uH$-modules in $\cC=\Dhol(X)$.
+\end{definition}
+
+
+
+ Since Diagram~\ref{groupoid} is a diagram of ind-stacks and ind-finite type maps, we can pass to $\Dhol$ and $!$-pullbacks to find the cosimplicial symmetric monoidal category $\Dhol(\cG_\bullet)$:
+ $$\xymatrix{\cdots &\ar[l]<1ex> \ar[l]<.5ex> \ar[l] \ar[l]<-.5ex> \ar[l]<-1ex> 
+ \Dhol(\cG\times_X \cG\times_X \cG)& \ar[l]<.75ex> \ar[l]<.25ex> \ar[l]<-.25ex> \ar[l]<-.75ex> 
+ \Dhol(\cG\times_X \cG)& \ar[l]<.5ex> \ar[l] \ar[l]<-.5ex> 
+ \Dhol(\cG) &\ar[l]<.25ex> \ar[l]<-.25ex>
+ \Dhol(X)}$$
+
+
+\begin{definition} The symmetric monoidal category $\Dhol(X)^{\cG}$ of $\cG$-equivariant sheaves on $X$ is the totalization $Tot(\Dhol(\cG_\bullet))$. 
+\end{definition}
+
+ 
+\begin{proposition} The cosimplicial symmetric monoidal category $\Dhol(\cG_\bullet)$ satisfies the monadic Beck-Chevalley conditions.
+Moreover the associated monad on $\Dhol(X)$ is identified with the Hecke algebra $\uH$ as an algebra in $End(\Dhol(X))$. 
+Thus we have an identification $\cW\simeq \Dhol(X)^{\cG}$, and hence a symmetric monoidal structure on the $\cW$-category for which the 
+forgetful functor $\cW\to\cC$ is symmetric monoidal.
+\end{proposition}
+
+\BZ{needs proof - should just be reminding that base change holds..}
+ 
+\begin{remark}[Tensor structure on $\cW$]
+One can explain the symmetric monoidal structure on $\cW=\Mod_{\uH}$ in alternative ways.
+
+The symmetric monoidal structure on $!$-pullback and oplax monoidal structure on ind-proper $*$-pushforward endow  $\uH=\pi_{2,*}\pi_1^!\simeq \pi^!\pi_*$ with a canonical oplax symmetric monoidal structure. Explicitly, given $\uH$-modules $M,N$ with structure maps $\uH M\to M$, $\uH N\to N$, we give $M\ot N$ a $\uH $-module structure with structure map $$\uH (M\ot N)\to \uH M \ot \uH N \to M\ot N.$$ 
+We also have a natural transformation
+$$\uH(\omega_X)=\pi_{2,*}\omega_{\cG}\simeq \pi_{2,*}\pi_2^!\omega_X\longrightarrow \omega_X.$$
+In other words $\uH$ forms a (derived analog of) a cocommutative {\em bimonad} in the sense of Moerdijk and Brugui\`eres-Virelizier, see~\cite{Bohm} (in fact it's naturally a Hopf monad). 
+Hence its modules form a symmetric monoidal category. 
+\BZ{Don't know if this is helpful? should be clear we're doing $E_\infty$ not discrete stuff}
+
+More formally, any stack canonically upgrades to a cocommutative coalgebra
+object
+\SG{should this be *co*algebra object? Although I guess it doesn't matter in the correspondence category...}\BZ{definitely, fixed}
+ in the category of stacks using the diagonal maps. Hence any groupoid, considered as an algebra object in the correspondence category of stacks, canonically upgrades to an algebra object in cocommutative algebra objects in the correspondence category. Then the functor $\Dhol$ recovers the structure of cocommutative bimonad on $\uH$. 
+\end{remark}
+
+
+
+\subsection{Monads vs. algebras.}\label{monad vs algebra}
+In the generality we're working, the Hecke algebra $\uH$ is only a monad, i.e., algebra object in endofunctors of $\Dhol(X)$. In the cases of practical interest however this reduces to an ordinary algebra, thanks to ``affineness" (or rather coaffineness). For example, in the case of a classifying space $X=pt/G$, we have equivalences
+$$\Dhol(X)\simeq \Mod_{C^*(X)}$$ and
+$$End(\Dhol(X))\simeq \Mod_{C^*(X)\ot C^*(X)}.$$
+Thus a monad on $\Dhol(X)$ is identified as an algebra object in $C^*(X)$-bimodules. The monad $\uH$ corresponding to an ind-proper groupoid $\cG$ over $X$ is 
+$$\uH\leftrightarrow i_*\omega_\cG\in \Dhol(X\times X)\simeq \Mod_{C^*(X)\ot C^*(X)},$$
+which can be identified with $C_*(\cG)=\Gamma(\omega_G)$, with bimodule structure given by the diagonal morphism $$C^*(X)\longrightarrow C_*(\cG).$$
+
+% In particular the projection of $\uH$ to the second factor is $$p_{2,*}\uH=\pi_{2,*}\omega_\cG\simeq \pi_*\omega_X.$$ 
+
+
+
+
+\begin{proposition}\label{classifying case} For $X=pt/K$ a classifying space, the category $\cW=\Mod_{\uH}$ is equivalent to the category $\Mod_{H}$ of modules for the $k$-algebra
+$H=\Gamma(\uH)\in Alg(Vect_k)$.
+\end{proposition}
+
+\begin{proof}
+We use the equivalence $\Dhol(X)\simeq \Mod_{C^*(X)}$, identifying $\uH$ with a monad on $\Mod_{C^*(X)}$, i.e., algebra object in $C^*(X)$-bimodules. The forgetful functor from $H$-modules in $\Mod_{C^*(X)}$ has a quasi-inverse, defined by using the unit map $C^*(X)\to H$ to endow any $H$-module in $Vect_k$ with a $C^*(X)$-module structure.
+\end{proof}
+
+
+\subsubsection{Pulling back Hecke algebras}
+We include an observation about base-changing Hecke algebras and the corresponding $\cW$-categories, that is needed for Proposition~\ref{webster morita} below
+\begin{proposition}\label{Hecke pullback} Let $\cG\to X\times X$ denote an ind-proper groupoid, and $\uH_X$ the Hecke algebra. Let $p:Z\to X$ denote an ind-proper morphism, $$\cG_Z=\cG\times_{X\times X} Z\times Z \to Z\times Z$$ the pullback groupoid and $\uH_Z$ the resulting Hecke algebra. Then $p^!$ lifts to a symmetric monoidal functor
+$$\xymatrix{\Mod_{\uH_X}\ar[r]& \Mod_{\uH_Z}}.$$ 
+\end{proposition}
+\BZ{This is a little out of place - just stuck in so as to make the Webster Morita equivalence argument work.}
+
+\begin{proof}
+This is immediate from the description of modules for the Hecke algebras as totalizations of cosimplicial symmetric monoidal categories - the functor in question is given by pullback of sheaves on simplices, hence is symmetric monoidal.
+\end{proof}
+
+
+
+\subsection{Hecke Categories}
+We now consider a categorical analog of the above discussion.  The {\em Hecke category} $$\cH:=\Dhol(\cG)$$ carries a canonical monoidal structure, the convolution product, following the general mechanism discussed in~\cite[II.2.5.1, V.3.4]{GR} --- it is inherited on applying $\Dhol$ to the structure on $\cG$ of algebra object in correspondences. The diagonal embedding (unit map) $i:X\to \cG$ induces a monoidal functor $$Char:\cC\to \cH$$ making $\cH$ into a {\em $\cC$-ring}, i.e., algebra object in $\cC$-bimodules. 
+
+
+Consider the cosimplicial symmetric monoidal category $\Dhol(\cG_\bullet)$. We may pass to module categories, obtaining a cosimplicial symmetric monoidal category $\Mod_{\Dhol(\cG_\bullet)}$. 
+
+\begin{definition} The symmetric monoidal category $\Mod_{\Dhol(X)}^{\cG}$ of $\cG$-equivariant module categories on $X$ is the totalization $Tot(\Mod_{\Dhol(\cG_\bullet)})$. 
+\end{definition} 
+
+
+\begin{remark}[Algebra vs Monad, revisited]
+As we noted in Remark~\ref{monad vs algebra}, we treat the Hecke algebra in general as a monad on $\Dhol(X)$, but in situations of interest this reduces to an algebra object in $C^*(X)$-bimodules. Here we chose to treat the Hecke category directly as an algebra in $\Dhol(X)$-bimodules. One could instead consider the monad on sheaves of categories on $X$ obtained by push-pull along $\cG$. Likewise the category $\Mod_{\Dhol(X)}^{\cG}$ is an avatar for the category of $\cG$-equivariant sheaves of categories on $X$, with which it is connected by the localization-global sections adjunction, and which it would recover if we were in a 1-affine situation. Thus we can also consider it as an avatar of sheaves of categories on the quotient stack $Y=X/\cG$, which is the source of its symmetric monoidal structure.
+\end{remark}
+
+\begin{proposition} The cosimplicial category $\Mod_{\Dhol(\cG_\bullet)}$ satisfies the monadic Beck-Chevalley conditions.
+Moreover the associated monad on $\Mod_{\Dhol(X)}$ is identified with the {\em Hecke category} $\cH=\Dhol(\cG)$ as an algebra in $\Dhol(X)$-bimodules via the diagonal map $\delta_*:\Dhol(X)\to \cH$. Thus we have an identification $\Mod_{\Dhol(X)}^{\cG}\simeq \Mod_{\cH}$.
+\end{proposition}
+
+\begin{proof}
+The Beck-Chevalley conditions for $\Mod_{\Dhol(\cG_\bullet)}$ follow from those for $\Dhol(\cG_\bullet)$ upon applying the functor $\Mod$.
+
+
+\end{proof}
+
+It follows that the category $\Mod_{\cH}$ of $\cG$-equivariant $\Dhol(X)$-modules inherits a symmetric monoidal structure, such that the forgetful functor $\Mod_{\cH}\to\Mod_{\cC}$ is symmetric monoidal. The unit object is the $\cH$-module $\cC$ 
+itself, which corresponds to the cosimplicial category $\Dhol(\cG_\bullet)$.
+
+\subsection{Hecke algebras vs. Hecke categories}
+We now compare descent for module categories with descent for sheaves. 
+Given a $\cH$-module $\cM$, or equivalently $\cM^\bullet \in Tot(\Mod_{\Dhol(\cG_\bullet)})$, we define the {\em $\cG$-equivariant objects} $\cM^{\cG}$ to be 
+$$\cM^{\cG}:=Hom_{\cH}(\Dhol(X), \cM).$$ Thus we have 
+$$\cM^{\cG}\simeq Tot(Hom(\Dhol(\cG_\bullet), \cM^\bullet)).$$
+
+\begin{proposition}\label{Hecke equivariance}
+\begin{enumerate}
+\item The $\cG$-equivariant objects in the $\cH$-module $\cC$ recover the category of $\cG$-equivariant sheaves on $X$, i.e.,
+$$\cC^\cG\simeq \cW.$$
+\item The resulting equivalence of $\cC^\cG$ with the endomorphisms of the unit $\cC$ of the symmetric monoidal
+category $\Mod_\cH$ lifts to a symmetric monoidal equivalence. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+We apply the above definition in the case $\cC=\Dhol(X)$, which corresponds to $\cC^\bullet=\Dhol(\cG_\bullet)$: 
+\begin{eqnarray*}
+[\Dhol(X)]^{\cG}&:=&Hom_{\cH}(\Dhol(X),\Dhol(X))\\
+&\simeq& Hom_{Tot(\Mod_{\Dhol(\cG_\bullet)})}(\Dhol(\cG_\bullet),\Dhol(\cG_\bullet))\\
+&\simeq& Tot(\Dhol(\cG_\bullet))\\
+&\simeq& \Dhol(X)^{\cG}.
+\end{eqnarray*}
+
+Tracing through the identifications above, we see that the symmetric monoidal structure on $Tot(\Dhol(\cG_\bullet))$ coming from tensor product of sheaves is identified with the symmetric monoidal structure on endomorphisms of the unit in $Tot(\Mod_{\Dhol(\cG_\bullet)})$, as claimed.
+\end{proof}
+
+\subsection{Abstract nonsense}
+
+The following result is a standard feature of monoidal categories.
+
+\begin{proposition} \label{nonsense}
+Let us fix a presentable symmetric monoidal category $\cP$ and a commutative algebra object $\cO\in Alg_{E_\infty}(\cP)$. 
+
+For any monoidal category $\cA$ the identification of functors $1_\cA\ot -$ and $Id_\cA$ induces an $E_2$-monoidal morphism $$1_\cA\ot -: End(1_\cA)\to End(Id_\cA).$$ This morphism, considered as an $E_1$-morphism, admits a left inverse $$act_{1_\cA}:End(Id_\cA)\to End(1_\cA), $$ given by the action of $End(Id_\cA)$ on the object $1_\cA$.
+\end{proposition}
+
+\begin{proof}
+We follow the outline of~\cite[Section E.2]{AG} in the stable setting of dg categories, though stability is not needed for the result. Namely we work
+
+2 category means 
+
+Let $\fa$ denote the $E_2$-algebra $End(1_\cA)$.
+We have monoidal functors $\Mod_{\fa}\longrightarrow \cA \longrightarrow End(\cA)$$
+
+\end{proof}
+
+
+\subsection{Central actions}
+Our main result asserts that $\cG$-equivariant sheaves give central objects in the groupoid category $\cH$. This central action can be thought of as expressing the linearity of convolution on $\cG=\XYX$ over sheaves on the (possibly ill-behaved) quotient $Y=X/\cG$.
+
+\begin{theorem}\label{groupoid center}
+Let $\cG$ denote an ind-proper groupoid acting on an ind-stack $X$, $\uH$ the corresponding monad on $\cC$ and $\cH=\Dhol(\cG)$ the groupoid category. 
+Then there is a canonical $E_2$-morphism $\Ngo$ with a monoidal left inverse section $Kost$ ($Kost\circ \Ngo\simeq Id$), 
+$$\xymatrix{\Mod_{\uH}\ar[r]^-{\Ngo}& \ar@/_1pc/_-{Kost}[l]\cZ(\cH)}$$ 
+lifting the diagonal map $Char:\cC\to \cH$:
+
+
+$$\xymatrix{\Mod_{\uH}\ar[r]_{E_2}\ar[d]_-{E_\infty}& \ar@/_1pc/_-{E_2}[l] \cZ(\cH)\ar[d]^{E_1}\\
+\Dhol(X) \ar[r]^{E_1} & \cH  }$$
+\end{theorem}
+
+\begin{proof}
+
+
+We take $$\cA=\Mod_{\cH}\simeq \Mod_{\cC}^{\cG}$$ to be the category of modules for the Hecke category, i.e., $\cG$-equivariant $\cC$-modules. We have identified $$End(1_\cA)\simeq\Mod_{\uH}\simeq \Dhol(X)^{\cG}$$ as categories. We need to show that this identification can be upgraded to an $E_2$ identification, hence obtaining the desired $E_2$-morphism from $\cW=\Mod_{\uH}$ to $End(Id_\cA)=\cZ(\cH)$. However we have seen in Proposition~\ref{Hecke equivariance} that the identification is in fact naturally $E_\infty$. 
+
+
+
+\end{proof}
+
+
+
+%\subsection{Discussion}
+%The theorem is a reflection of the close relation between $\cH=\Dhol(\cG)$ 
+%and {\em comodules} for $\uH$, $$co\Mod_{\cH}\simeq Loc(\cG)$$
+%\SG{As we have been discussing, we need to clarify what is meant by Loc here.}
+ %which is a form of affinization of $\cH$ -- in particular is the same as $\cH$ in the discrete setting, such as $\cG=G$ a finite group.
+%Note that $\Mod_{\uH}$ has a canonical central functor into its own Drinfeld center. But since $\uH$ is a Hopf monad, this %Drinfeld center can be described as modules for the double of $\uH$, i.e., Yetter-Drinfeld modules for $\uH$. 
+
+
+\subsection{Digression: The averaging idempotent}
+The following is not strictly necessary, but gives a useful picture of equivariance as modules for an categorical form of the averaging idempotent in a finite group algebra:
+
+\begin{proposition} 
+\begin{enumerate}
+\item The object $e=\omega_{\cG}\in \cH$ has a canonical structure of algebra object. 
+\item Under the monoidal action map $\cH\to End(\Dhol(X))$, $e$ is taken to the Hecke algebra $\uH$. Thus we have an equivalence $\Dhol(X)^\cG\simeq \Dhol(X)^e$ of equivariant sheaves with $e$-modules in $\Dhol(X)$.
+\item More generally, for any $\cH$-module $\cC$ [assuming $\cH$ rigid and $\Dhol(X)$ dualizable] we have an identification $\cC^\cG\simeq \cC^e$ of equivariant objects with $e$-modules in $\cC$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+For the third part, we assume that $\cH$ is rigid (which follows from the assumption that $X\to Y$ is ind-proper) and that $\Dhol(X)$ is self-dual over $\cG$ (which follows from rigidity and the self-duality of $\Dhol(X)$ over $k$, which holds as long as $\Dhol(X)$ is dualizable, i.e., in great generality.)
+It follows that for any $\cH$-module $\cC$ we have 
+\begin{eqnarray*}
+\cC^\cG&=&Hom_\cH(\Dhol(X),\cC)\\
+&\simeq& \Dhol(X)\ot_\cH \cC \\
+&\simeq& \cH^e \ot_\cH\cC\\
+&\simeq& \cC^e
+\end{eqnarray*}
+where the last step is~\cite{BFN}[Proposition 4.1] (or rather its extension from symmetric monoidal to monoidal categories, as cited somewhere else..)
+
+
+\end{proof}
+
+
+
+%\begin{definition} We say $X$ is homologically quasi-affine if the composite 
+%$$\cD(X)\ar[r]^-{\Gamma}& C^*(X)\Mod_{ \ar[r]^-{\Delta} & \cD(X)$$ is equivalent to the identity. 
+%\end{definition}
+
+%For example, any nilpotent homotopy type is homologically quasi-affine:
+%we have an equivalence $$QC(X)\to C^*(X)\Mod_{\simeq IndCoh(X).$$ We'll apply this to $X=BK$ the classifying space of a reductive group. 
+
+
+
+
+\section{Kac-Moody groups}
+
+Let us recall some constructions from the theory of Kac-Moody flag varieties following~\cite{Mathieu, Kumar} and nil-Hecke algebras following~\cite{KK,Arabia,schubert book,ginzburg hecke}.
+
+Let $A$ be a generalized Cartan matrix, together with a realization $(\uh,R,R^\vee)$ on a $k$-vector space $\uh$. (We assume $k$ has characteristic zero.)
+We denote by $\ug$ the associated Kac-Moody algebra, with root decomposition
+$$\ug=\uh\oplus\bigoplus_{\alpha\in R} \ug_\alpha.$$
+Let $\uW$ denote the associated Weyl group, which is a Coxeter group acting on $\uh$. 
+
+To this data is associated a group ind-scheme $\uG$ over $k$, the Kac-Moody group, together with a Borel subgroup (an affine group scheme) and pro-unipotent radical $\uU\subset \uB\subset \uG$ and Cartan subgroup $H$ (a finite dimensional split torus over $k$) with $\uB=\uU\uH$. The flag variety $\uG/\uB$ has the structure of an ind-proper ind-scheme of ind-finite type, and this structure is compatible with the pro-structure on $\uB$ as described in~\cite[Section 7.1]{Kumar} so that the flag stack $$\cG=\uB\backslash \uG/\uB$$ defines an ind-proper groupoid over $X=pt/\uB$. 
+
+The nil-Hecke algebra of Kostant-Kumar~\cite{KK} associated to $\uG$ is by definition the subalgebra $H_\uG$ of endomorphisms of $\C[\uh^*]$ generated by multiplication operators $\C[\uh^*]$ and the Demazure, or divided-difference, operators associated to simple reflections $\sigma_i\in \uW$ with associated simple roots $\alpha_i$
+$$A_i=(1-\sigma_i)/\alpha_i.$$ The $A_i$ generate the nil-Coxeter algebra $Nil_\uG$, with basis $A_w$ ($w\in \uW$) and relations
+$A_vA_w=A_{vw}$ if $l(vw)=l(v)+l(w)$ and $0$ otherwise (it is the associated graded of $\C \uW$ with respect to a natural filtration~\cite{ginzburg hecke}).
+
+\begin{theorem}~\cite{Arabia} The nil-Hecke algebra $H_\uG$ is isomorphic to the convolution algebra $H_*(\uB\backslash \uG/\uB)$. 
+\end{theorem}
+
+It follows that $H_\uG$ is a Hopf algebroid over $H^*(pt/\uB)\simeq \C[\uh^*]$. 
+One can also write the cocommutative coproduct on the nil-Hecke algebra explicitly: it is determined by the assignment
+\begin{eqnarray*}\Delta(A_i)&=&A_i\ot 1 + \sigma_i\ot A_i\\
+&=&\frac{1}{\alpha_i}(1\ot 1 - \sigma_i\ot \sigma_i)
+\end{eqnarray*} In other words, the coproduct is compatible with the standard coproduct on the groupoid algebra $\C W \otimes \C[\uh^*]$. 
+
+
+\begin{remark}[Parabolic versions]
+One can replace the Borel $\uB$ by other parabolic subgroups, resulting in parabolic Hecke categories $\Dhol(\uP\backslash \uG/\uP)$ and parabolic nil-Hecke algebras $H_*(\uP\backslash \uG/\uP)$. See~\cite{ginzburg whittaker} for a study of the spherical affine nil-Hecke algebra, i.e. equivariant homology of the affine Grassmannian, which we return to below. 
+\end{remark}
+
+\subsection{Coarse quotients of Coxeter groups}
+
+We continue with the Coxeter group $\uW\actson\uh^*$ associated to the Kac-Moody group $\uG$.
+
+Let $\Gamma\subset \uh^*\times \uh^*$ denote the union of the graphs of the elements of $\uW$ acting on $\uh^*$. In other words, $\Gamma$ is the graph of the equivalence relation on $\uh^*$ determined by $\uW$. We denote by $\uh^*//W$ the quotient functor of $\uh^*$ by the equivalence relation $\Gamma$. In other words, $\uh^*//W$ is the coarse moduli space of the stack quotient $\uh^*/W$. For $\uG$ a reductive group, this agrees with the usual terminology $\fh^*//W=Spec \C[\fh^*]^W$. Note that $\Gamma\to \uh^*\times\uh^*$ is ind-proper, so that we may identify $\Gamma$-equivariant ind-coherent sheaves on $\uh^*$, i.e., ind-coherent sheaves on $\uh^*//W$, with modules for the groupoid algebra $\omega(\Gamma)$.
+
+\begin{proposition} $H_\uG$ is naturally identified as Hopf algebroid over $\uh^*$ with $\omega(\Gamma)$, the groupoid algebra of the equivalence relation $\Gamma$ on $\uh^*$ determined by the $\uW$-action. Thus we have an equivalence of symmetric monoidal categories
+$$\Mod_{H_{\uG}}\simeq IndCoh(\uh^*//\uW).$$
+\end{proposition}
+
+
+Let $W$ denote a Coxeter group and $\fh$ its reflection representation. For $w\in W$ we let $\Gamma_w\subset \fh\times \fh$ denote the graph of the corresponding reflection. Let $$\Gamma_W=\coprod_{w\in W} \Gamma_w.$$ Then $\cG=\Gamma_W$ is an ind-proper groupoid acting on the scheme $\fh$. 
+
+Let $H_W=\Gamma(\omega_\cG)$ denote the corresponding (ind-coherent) Hecke algebra. It is a variant of the nil-Hecke algebra~\cite{KK} associated to $W$. 
+\BZ{Do we know if $H_W$ is the nil-Hecke algebra outside of the finite case??}
+Let $\cH_W=\cQ^!(\Gamma_W)$ denote the ind-coherent Hecke category. It is closely related to the Iwahori-Hecke category associated to $W$.
+
+
+
+
+
+\section{The Kostant Category}
+
+
+\subsection{Whittaker reduction}
+In this section we recall some results about Whittaker reductions of differential operators on $G$.
+
+{\bf Caution:} In this section we discuss associative algebras and abelian categories rather than their dg or $\infty$-versions.  
+
+Let $G\supset B\supset N$ denote a reductive group with Borel subgroup and unipotent radical, $\fg\supset \fb\supset \fn$ their Lie algebras. Fix a nondegenerate character $\psi\in \fn^\ast$. A seminal result of Kostant~\ref{Kostant Whittaker} identifies 
+the center of $U\fg$ with $U\fg//_{\psi} U\fn$, the quantum Hamiltonian reduction of $U\fg$ by $U\fn$ twisted by the character $\psi$. The latter, the Whittaker Hecke algebra, is the endomorphism algebra of the functor $(-)^{\fn,\psi}$ of Whittaker vectors in $\fg$-modules. 
+
+If we replace $U\fg$ by the full algebra $\cD_G$ of differential operators on $G$, the analogous Hamiltonian reduction produces the quantized (and partially completed) phase space of the Toda lattice associated to $G$.
+
+\begin{theorem}~\cite{BezFink}\label{Whittaker algebra} 
+The following associative algebras are canonically isomorphic:
+\begin{enumerate}
+\item the Whittaker Hamiltonian reduction $Toda(G)=N{}_\psi\backslash\backslash\cD_G//_\psi N$ of the algebra of differential operators on $G$ (the partially completed quantized Toda lattice)
+
+\item $H=H_*(\cGr/\Gm)$, the equivariant homology of the Grassmannian of the dual group
+\end{enumerate}
+\end{theorem}
+
+The theorem is a quantization of the result of~\cite{BFM} describing the equivariant homology of the Grassmannian (without loop rotation) as functions on the group-scheme $J\to \fc$ of regular centralizers.
+
+The results of Kostant-Kumar~\cite{KK,Kumar} (see~\cite{ginzburg whittaker}) identify the algebra $H$ with an explicitly defined algebra, namely the spherical subalgebra $H_{sph}$ of the nil Hecke algebra associated to the affine Weyl group.
+
+
+\begin{theorem}\label{ginz-lonergan}~\cite{ginzburg whittaker, lonergan, lonergan2} The following abelian categories are canonically equivalent:
+\begin{enumerate}
+\item the bi-Whittaker Hecke category of $G$
+\item the category $\Mod_H$ of modules for the algebra $H\simeq H_{sph}\simeq Toda(G)$ described in Theorem~\ref{Whittaker algebra} 
+\item The category $QCoh(\fh^*//W^{aff})$ of quasicoherent sheaves on the coarse quotient of $\fh^*//W^{aff}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark} The last assertion in Theorem~\ref{ginz-lonergan} is a paraphrase of the results of
+~\cite{ginzburg whittaker, lonergan, lonergan2}. In~\cite{lonergan} the category is described as quasi-coherent sheaves equivariant for the ``adjancency groupoid" of $W^{aff}$, namely the groupoid $\Gamma$ defining the coarse quotient. The category is also described in {\it loc. cit.} as the full subcategory of $W^{aff}$-equivariant quasicoherent sheaves on $\fh^*$ which carry a trivial action of derived inertia, or equivalently descend to the categorical quotient by the finite Weyl group or by every finite parabolic subgroup of $W^{aff}$ the finite Weyl group.
+\end{remark}
+
+
+
+
+
+
+
+
+\subsection{Asymptotic Harish Chandra modules}
+
+Given a variety $X$ we let $\cR_X$ denote the graded Rees algebra of differential operators on $X$, i.e.,
+$$\cR_X=\bigoplus \cD_{\leq i,X}[-2i].$$ We let $\cR(X)=\Mod_{\cR_X}$ denote the category of asymptotic $\cD$-modules on $X$. 
+
+Let $\HC$ denote the category of asymptotic Harish Chandra bimodules, $\HC=\cR_G(G)_G$, the category of $G$-weakly bi-equivariant asymptotic $\cD$-modules on $G$. 
+
+The following result is a consequence of Gaitsgory's 1-affineness theorem~\cite{1affine} due to Beraldo~\cite{dario}:
+
+\begin{proposition} There is a Morita equivalence of monoidal categories $ \Mod_{\cR(G)}\simeq  \Mod_{\HC}$
+sending a $\cR(G)$-module category $M$ to its weak $G$-invariants $M^{\QC(G)}$. 
+\end{proposition} 
+
+Under the Morita equivalence, the $\cR(G)$-module $\cR(G/N)_\psi$ is exchanged with its weak $G$-invariants,
+$$(\cD_\hbar(G/N)_\psi)^{w,G}=\cD_{\hbar,G}(G/N)_\psi=Whit,$$
+the category of Whittaker $U\fg$-modules, which by Skryabin's theorem is identified as 
+$$Whit\simeq \Mod_\cZ.$$
+
+\SG{Should the $\cD_{\hbar,G}$ etc. be $\cR_G$ to be consistent?}
+\BZ{Should definitely be consistent. I was trying to eliminate all the floating $\hbar$'s from the notation, especially if in this version we don't do Ngo, i.e. set $\hbar=0$.. Not a huge fan of the $\cR_G$ notation though, maybe something else with a $\cD$?}
+
+
+\begin{theorem}[Renormalized Satake Equivalence]\label{ren Satake}~\cite{BezFink} (see also~\cite{AG})
+There is an equivalence of monoidal categories $$\Dhol(\cGr/\Gm)\simeq \HC_\hbar.$$ The equivalence exchanges the global cohomology functor
+$$\Dhol(\cGr/\Gm)\to \Dhol(X\times_{B\Gm} X)\simeq \Mod_{C^*(B\Gv\times B\Gv \times B\Gm)}$$
+with the Whittaker functor
+$$\HC_\hbar\to \Mod_{\cZ\ot\cZ\ot \C[\hbar]}.$$
+\end{theorem}
+
+
+
+
+
+
+\begin{definition} The {\em Kostant category} $\cK$ is the Whittaker Hecke category, i.e., the monoidal category 
+$$\cD_{\hbar,\psi}(N\backslash G/N)_\psi \simeq End_{\cD_\hbar(G)}(\cD_\hbar(G/N)_\psi)\simeq End_{\HC_\hbar}(Whit)$$
+\end{definition}
+
+In particular the classical Kostant category $$\cK_0=\cK_\hbar\ot_{\C[\hbar]} \C\simeq \cQ(N{}_\psi \backslash \backslash G//_\psi N)$$ is identified as a monoidal category
+with $(\cQ(J),\ast)$, the category of sheaves on the groupscheme $J\to \fc$ of regular centralizers equipped with convolution.
+
+
+
+
+
+
+
+
+\subsection{Langlands duality}
+
+\begin{proposition} 
+There is an equivalence of monoidal categories
+$$\cK_\hbar\simeq \Mod_H.$$ 
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{Hecke equivariance} we have a monoidal identification of $\Mod_{\uH}$ with $\cH$-endomorphisms of $\Dhol(X=pt/\Gv(\cO)\rtimes \Gm)\simeq \Mod_{C^*(B\Gv\times \Gm)}$. By Theorem~\ref{ren Satake} on the other hand we have a monoidal identification of the latter category with $\HC_\hbar$-endofunctors of $\Mod_{\cZ\ot\C[\hbar]}$, in other words with the Whittaker Hecke category $\cK_\hbar\simeq End_{\HC_\hbar}(Whit)$.
+\end{proof}
+
+\begin{theorem} The monoidal structure of $\cK_\hbar$ can be extended to a symmetric monoidal structure.
+Moreover there is an $E_2$ functor defining a central action $$\cK_\hbar\to\cZ(\HC_\hbar)\simeq \cD_\hbar(G/G).$$
+\end{theorem}
+
+
+
+\subsection{The equivariant Satake category}
+We take $X=pt/\Gv(\cO)\rtimes \Gm$, $Y=pt/\Gv(\cK)\rtimes\Gm$, $\cGr=\Gv(\cO)\backslash \Gv(\cK)/\Gv(\cO)$ and $\cG=\cGr/\Gm\simeq \Gv(\cO)\backslash \Gv(\cK)/\Gv(\cO).$ Note that $X$ is an ind-stack and $\cGr$ an ind-proper groupoid acting on $X$.  Thus Theorem~\ref{groupoid center} applies:
+
+\begin{corollary}
+There is a symmetric monoidal structure on modules for $H=C_*(\cGr/\Gm)$, and a central functor $\Mod_H\to\cZ(\Dhol(\cGr/\Gm))$.
+\end{corollary}
+
+
+
+
+
+
+\subsection{Homology version}
+\begin{proposition} The equivariant chains on the Grassmannian $C_*(\cGr/\Gm)$ are formal both as algebra and as coalgebra.
+\end{proposition}
+
+In this section we denote by $H_{sph}=H_*^{\Gv\times \Gm}(Gr_{\Gv})$ the equivariant homology of the affine Grassmannian, and $H_{aff}=H_*^{H\times \Gm}(Fl_{\Gv})$ the equivariant homology of the affine flag variety. We consider both as cocommutative Hopf algebroids under convolution. Their categories of modules are equivalent by a result of~\cite{Webster}, in fact we have the following:
+
+\begin{proposition}\label{webster morita}
+There is a natural equivalence of symmetric monoidal categories $\Mod_{H_{sph}}\simeq \Mod_{H_{aff}}$.
+\end{proposition}
+\SG{What is the status of this section? Do we have a reference for this proposition? Horel?}
+\BZ{This section is somewhat cobbled. Webster's proof gives the Morita equivalence on homology level. Somewhere we still need to/can do the Horel formality argument to relate the chains to homology, but I've left that be for now.}
+\begin{proof}
+We apply Proposition~\ref{Hecke pullback} to $X=pt/\Gv(\cO)$, $Z=pt/I^\vee$, and $\cG_X=\cGr=X\times_{pt/\Gv(\cK)} X$. The pullback groupoid is $$\cG_Z=Z\times_{pt/\Gv(\cK)} Z\simeq I^\vee\backslash \Gv(\cK)/I^\vee,$$ the equivariant affine flag variety. It follows that we have a symmetric monoidal functor from $\Mod_{H_{sph}}$ to  $\Mod_{H_{aff}}$\footnote{or rather the chain level version.}. By~\cite[Theorem 3.3]{Webster} the underlying functor is an equivalence (in fact identifying $H_{aff}$ as an $|W|\times |W|$-matrix algebra over $H_{sph}$). 
+\end{proof}
+
+
+\subsection{Affine Nil-Hecke Algebras}
+\BZ{This section can probably be cut. Just hanging around for now, from an earlier version}
+We now specialize to the affine Kac-Moody case, where $\uG$ is the semidirect product of a central extension of the loop group $\Gv(\cK)$ by $\Gm$ acting by loop rotation. In this case the flag variety is a line bundle over $\Gv(\cK)/I^\vee$, $$\uh\simeq \fh^\vee\oplus \CC d \oplus \CC K$$ and $$H^*(pt/\uG)\simeq H^*(pt/\Gv)[\epsilon,k]=\C[\fh^*]^W[\epsilon,k],$$
+$$H^*(pt/\uB)\simeq H^*(pt/B^\vee)[\epsilon,k]=\C[\fh^*][\epsilon,k],$$
+The affine Weyl group $\uW=W^{aff}=\Lambda\rtimes W$ with $W$ the finite Weyl group. Let $\uh_0=\uh/\CC K\simeq \fh^*\oplus \CC d$. An element $\wt{w}=w\lambda\in \uW$  acts on $\uh^0$ by 
+$$\wt{w}\cdot (\xi, t)=(w\cdot \xi + \epsilon \lambda, \epsilon).$$ In other words, at $\epsilon=1$ we recover the standard action of $W^{aff}$ on $\fh^*$. However we will treat $\epsilon$ as a graded parameter, so it will only make sense to invert $\epsilon$, not set it to $1$.
+
+
+Let $H_{\Gv}^{aff}=H_\uG/(k)$ be the level zero specialization of the nil-Hecke algebra of $\uG$, which we consider as a $\CC[\epsilon]$-algebra. 
+
+\begin{proposition} We have an equivalence of symmetric monoidal categories
+$$\Mod_{H_{\Gv}^{aff}}\simeq IndCoh(\fh^*\times {\mathbb A}^1_\epsilon//W^{aff}),$$
+where the $W^{aff}$ action is the standard action on $\fh^*$ with the lattice action rescaled by $\epsilon$.
+\end{proposition}
+
+\begin{thebibliography}{Dri}
+
+\bibitem[A]{Arabia} A. Arabia,  Cohomologie T-\'equivariante de la vari\'et\'e de drapeaux d'un groupe de Kac-Moody. Bull. Soc. Math. France 117 (1989), no. 2, 129-165.
+
+
+\bibitem[AG]{AG} D. Arinkin and D. Gaitsgory, Singular support of coherent sheaves, and the geometric Langlands conjecture, arXiv:1201.6343. Selecta Math. (N.S.) 21 (2015), no. 1, 1-199. 
+
+\bibitem[BD]{BD} A. Beilinson and V. Drinfeld, Quantization
+of Hitchin Hamiltonians and Hecke Eigensheaves. Preprint, available
+at math.uchicago.edu/\~{}mitya.
+
+
+
+\bibitem[BGO]{highest} D. Ben-Zvi, S. Gunningham and H. Orem, Highest weights for categorical representations.  arXiv:1608.08273.
+
+
+\bibitem[BGN]{character2} D. Ben-Zvi, S. Gunningham and D. Nadler, The character field theory and homology of character varieties.  arXiv:1705.04266.
+
+  
+\bibitem[BN1]{character}
+D. Ben-Zvi and D. Nadler, The Character Theory of a Complex Group. arXiv:0904.1247.
+
+
+
+\bibitem[Be]{dario} D. Beraldo, Loop group actions on categories and Whittaker invariants. Berkeley PhD Thesis, 2013.    
+
+\bibitem[BeF]{BezFink} R. Bezrukavnikov and M. Finkelberg, Equivariant Satake category and Kostant-Whittaker reduction. Mosc. Math. J. 8 (2008), no. 1, 39-ê72, 183. 
+
+\bibitem[BFM]{BFM}  R. Bezrukavnikov, M. Finkelberg and I. Mirkovi\'c, Equivariant homology and K-theory of affine Grassmannians and Toda lattices. Compos. Math. 141 (2005), no. 3, 746-768.
+ 
+ \bibitem[B\"o]{Bohm} G. B\"ohm, Hopf algebroids. arXiv:0805.3806. Chapter in Handbook of Algebra.
+ 
+\bibitem[dCHM]{dCHM} M. de Cataldo, T. Hausel and L. Migliorini,Topology of Hitchin systems and Hodge theory of character varieties: the case A1. Ann. of Math. (2) 175 (2012), no. 3, 1329Ñ-1407. 
+   
+
+\bibitem[CH]{formality} J. Cirici and G. Horel, Mixed Hodge structures and formality of symmetric monoidal functors.
+e-print arXiv:1703.06816.
+
+
+  
+\bibitem[DG1]{finiteness} V. Drinfeld and D. Gaitsgory, On some finiteness questions for algebraic stacks.  
+Geom. Funct. Anal. 23 (2013), no. 1, 149-294.  e-print arXiv:1108.5351.
+
+
+  
+\bibitem[DG2]{DrG2} V. Drinfeld and D. Gaitsgory, Compact generation of $\cD$-modules on $Bun_G$.  Available at 
+http://www.math.harvard.edu/\~{}gaitsgde/GL/
+
+
+
+\bibitem[DGNO]{DGNO} V. Drinfeld, S. Gelaki, D. Nikshych and V. Ostrik, On Braided Fusion Categories I. eprint arXiv:0906.0620.
+ 
+\bibitem[G1]{DGcat} D. Gaitsgory, Generalities on DG categories. Available at 
+http://www.math.harvard.edu/\~{}gaitsgde/GL/
+
+
+\bibitem[G]{1affine} D. Gaitsgory, Sheaves of categories and the notion of 1-affineness. Stacks and categories in geometry, topology, and algebra, 127-225, Contemp. Math., 643, Amer. Math. Soc., Providence, RI, 2015. 
+
+\bibitem[GR1]{GRcrystals} D. Gaitsgory and N. Rozenblyum, Crystals and $\cD$-modules, available at 
+	http://www.math.harvard.edu/\~{}gaitsgde/GL/
+	
+
+\bibitem[GR2]{GRindschemes} D. Gaitsgory and N. Rozenblyum, DG ind-schemes, available at 
+	http://www.math.harvard.edu/\~{}gaitsgde/GL/
+	
+
+
+
+\bibitem[GR3]{GR} D. Gaitsgory and N. Rozenblyum, A study in derived algebraic geometry. Preliminary version (May 2016), available at 
+	http://www.math.harvard.edu/\~{}gaitsgde/GL/
+	
+
+
+
+\bibitem[Gi1]{ginzburg hecke} V. Ginzburg, Geometric methods in the representation theory of Hecke algebras and quantum groups. Notes by Vladimir Baranovsky., NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., 514, Representation theories and algebraic geometry (Montreal, PQ, 1997), 127-183, Kluwer Acad. Publ., Dordrecht, 1998.
+
+\bibitem[Gi2]{ginzburg whittaker} V. Ginzburg, Nil Hecke algebras and Whittaker D-modules. e-print 
+arXiv:1706.06751.
+
+
+\bibitem[Ha]{H} T. Hausel, Mirror symmetry and Langlands duality in the
+  non-abelian Hodge theory of a curve.  Geometric methods in algebra
+  and number theory, 193--217, Progr. Math., 235, Birkh\"auser Boston,
+  Boston, MA, 2005.
+
+\bibitem[HRV]{HRV} T. Hausel and F. Rodriguez-Villegas, Mixed Hodge
+  polynomials of character varieties. With an appendix by Nicholas
+  M. Katz. Invent. Math. 174 (2008), no. 3, 555--624.
+
+\bibitem[HLRV]{HLRV} T. Hausel, E. Letellier and F. Rodriguez-Villegas
+  Arithmetic harmonic analysis on character and quiver
+  varieties. e-print arXiv:0810.2076
+
+\bibitem[HK]{HK} R. Hotta and M. Kashiwara, The invariant holonomic system on a semisimple 
+Lie algebra.  Invent. Math.  75  (1984),  no. 2, 327--358. 
+
+
+
+
+
+\bibitem[KW]{KW}
+A. Kapustin and E. Witten, ``Electric-Magnetic Duality And The
+Geometric Langlands Program," Commun. Number Theory Phys. 1 (2007), no. 1, 1-236. e-print hep-th/0604151. 
+
+\bibitem[Ko1]{Kostant Whittaker} B. Kostant, On Whittaker vectors and representation theory. Invent. Math. 48 (1978), no. 2, 101-184.
+
+\bibitem[Ko2]{Kostant Toda} B. Kostant,  The solution to a generalized Toda lattice and representation theory. 
+Adv. in Math. 34 (1979), no. 3, 195-338.
+
+
+
+\bibitem[KK]{KK} B. Kostant and S. Kumar,  The nil Hecke ring and cohomology of G/P for a Kac-Moody group G. Adv. in Math. 62 (1986), no. 3, 187-237.
+
+\bibitem[K]{Kumar} S. Kumar, Kac-Moody groups, their flag varieties and representation theory. Progress in Mathematics, 204. Birkh\"auser Boston, Inc., Boston, MA, 2002. xvi+606 pp.
+
+\bibitem[LLMSSZ]{schubert book} T. Lam, L. Lapointe, J. Morse, A. Schilling, M. Shimozono and M. Zabrocki, 
+k-Schur functions and affine Schubert calculus. Fields Institute Monographs, 33. Springer, New York; Fields Institute for Research in Mathematical Sciences, Toronto, ON, 2014. 
+
+\bibitem[L1]{topos} J. Lurie, Higher topos theory.
+arXiv:math.CT/0608040.  Annals of Mathematics Studies, 170. Princeton University Press, Princeton, NJ, 2009.
+
+\bibitem[L2]{HA} J. Lurie, Higher Algebra. Available at
+  http://www.math.harvard.edu/\~{}lurie/
+
+
+\bibitem[L3]{jacob TFT} J. Lurie, On the classification of topological
+  field theories.  Available at http://www.math.harvard.edu/\~{}lurie/
+  Current developments in mathematics, 2008, 129--280, Int. Press,
+  Somerville, MA, 2009.
+  
+\bibitem[Lo1]{lonergan} G. Lonergan,  A Fourier transform for the quantum Toda lattice. e-print arXiv:1706.05344.
+
+
+\bibitem[Lo2]{lonergan2} G. Lonergan,  A remark on descent for Coxeter groups. arXiv:1707.01156.
+  
+\bibitem[Lu]{character 1} G. Lusztig, Character sheaves I. Adv. Math 56 (1985) no. 3, 193-237.
+
+\bibitem[M]{Mathieu} O. Mathieu, Construction d'un groupe de Kac-Moody et applications. Compositio Math. 69 (1989), no. 1, 37--60.
+
+\bibitem[Ng\^o]{Ngo} Ng\^o Bao-Ch\^au, Le lemme fondamental pour les
+  alg\`ebres de Lie. Pub. Math. IHES No. 111 (2010), 1--169.
+  
+\bibitem[R]{raskin} S. Raskin, $\cD$-modules on infinite dimensional varieties. Available at http://math.mit.edu/\~{}sraskin/dmod.pdf
+
+  \bibitem[T]{teleman} C. Teleman, Gauge theory and mirror symmetry.  arXiv:1404.6305. To appear, Proc. of the 2014 ICM. 
+
+\bibitem[W]{webster} B. Webster, Koszul duality between Higgs and Coulomb categories $\cO$. e-print arXiv:1611.06541.
+
+\bibitem[Y]{yun} Z. Yun, Goresky-MacPherson calculus for the affine flag varieties. e-print arXiv:0712.4395.
+
+\end{thebibliography}
+    
+
+	
+		
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+
+
+\begin{defn}
+The category $\Dhol(X/K)$ of ind-holonomic equivariant $\cD$-modules on $X$ is defined to be the ind-category of the inverse limit $\lim_{\leftarrow,j} \cD_{coh,hol}(X/K_j)$.
+\end{defn}
+
+
+
+
+
+Let $K$ denote a groupscheme, equipped with a realization $K=\lim_{\leftarrow} K_i=K/K^i$ as a pro-finite type group where the $K^i$ are pro-unipotent groups. Thus we have a directed system of functors $K_i-Sch\to K_j-Sch$ for $j\geq i$, where we consider a $K_i$-scheme as a $K_j$-scheme via the quotient map $K_j\to K_i$. 
+
+\begin{defn} A discrete $K$-scheme is an object of the filtered colimit of categories $K_i-Sch$ of finite type 
+$K_i$-schemes. \end{defn}
+
+Thus a discrete $K$-scheme is representable as $K_i\actson X$ for a finite type scheme and $i$ sufficiently large. 
+Equivalently we may identify discrete $K$-schemes $X$ with representable morphisms $\cX=X/K\to pt/K$ which are pulled pack from $X/K_i\to pt/K_i$ for some $i$. 
+
+\begin{proposition}
+For $K\twoheadrightarrow K_i\actson X$ a discrete $K$-scheme, the inverse system 
+$$\cdots\rightarrow \cD(X/K_j)\rightarrow \cD(X/K_i)$$ consists of equivalences of categories (preserving holonomic and coherent objects), so that $\Dhol(X/K)\simeq Ind \cD_{coh,hol}(X/K_i)$. 
+\end{proposition}
+
+
+
+\begin{defn}
+A discrete $K$-indscheme (or $K$-indscheme for short) is a prestack representable as a filtered colimit of discrete $K$-schemes $X_i\hookrightarrow X_j$ under equivariant closed embeddings.
+\end{defn}
+
+
+ 
+
+
+
+
+
+\section{Spectral decomposition in geometric representation theory}\label{Kostant section}
+In this section I describe the motivation for and construction of the Kostant category and some of the many problems suggested by the 
+construction in representation theoretic terms. 
+
+\subsection{Motivation: Classical and quantum Hamiltonian systems}\label{quantum}
+One of the fundamental problems in harmonic analysis is spectral decomposition of functions on a symmetric space under
+Harish Chandra's commutative algebra of invariant differential operators, a collection of higher analogs of the Laplace operator for which we seek joint eigenfunctions. The Harish Chandra system and its symmetries arise from considering the quantization of the above story.
+(All objects will be algebraic over $\CC$.) 
+Fix a reductive Lie group $G$ with Lie algebra $\fg$.
+
+We consider the Poisson variety $\fgx$ and its quantization, 
+the enveloping algebra $U\fg$. Let $$\xymatrix{\fgx\ar[r]^-{\chi}&\fc:=
+\Spec \left( \CC[\fgx]^G\simeq \CC[C_1,\dots,C_l]\right) \simeq \fhx/W}$$
+denote the adjoint quotient. 
+Harish Chandra proved that the center $\chi^*:\cZ\fg\hookrightarrow U\fg$ is isomorphic to $\CC[\fgx]^G=\CC[\fc]$, so that we have a polynomial algebra of Casimir operators in $U\fg$ (quantizing the Poisson central functions on $\fgx$). 
+
+
+Kostant defined a section $\kappa:\fc\to \fgx$ landing in the regular locus $\fgxr\subset \fgx$ - the locus of $x\in \fgx$ whose stabilizer $G_x$ has the minimal dimension $l=rk(\fg)$. (For $\gl_n$ this is the locus of matrices admitting a cyclic vector, and we find a version of rational cyclic form.)  Up to conjugation, the Kostant section can be described in terms of Hamiltonian reduction: let $\fn\subset \fb\subset \fg$ be the unipotent radical of a Borel sub algebra (strictly upper triangular matrices for $\gl_n$) and $\psi\in \fn^\ast\simeq \fg/\fb$ a non degenerate character of $\fn$ (a matrix with all entries just below the diagonal nonzero, considered up to upper triangular matrices). Then the composite map $$\xymatrix{\fgx//_{\psi} N \ar[r]& \fgx/G \ar[r]^-{\chi}& \fc}$$ is an isomorphism, and the Kostant section is (a lift to $\fgx$ of) its inverse.
+ The quantization of the Kostant section is given by the {\em Whittaker Hecke algebra}, the quantum Hamiltonian reduction $$H_\psi=U\fg//_\psi U\fn:$$ the algebra which acts on the space of Whittaker vectors ($\fn$-eigenvectors with eigenvalue $\psi$) universally in any $U\fg$-module. Kostant~\cite{Kostant Whittaker} then proved that the canonical map $\cZ\fg\to H_\psi$ is an isomorphism. 
+
+
+
+Consider a Hamiltonian $G$-space, that is,  a Poisson $G$-variety $X$ (with Poisson ring of functions $A_0=\CC[X]$) equipped with a $G$-equivariant, Poisson moment map $\mu:X\to \fgx$ (i.e. $\CC[\fgx]\to A_0$). A quantum analog is an algebra $A$ acted on by $G$, for which the Lie algebra action is made internal by means of a homomorphism $\mu^*:U\fg\to A$. Standard examples are $X=T^*M$ and $A=\cD_M$ for a $G$-space $M$, or $X=\fgx$ and $A=U\fg$ itself.
+
+
+The composite map $$\xymatrix{\cZ\fg\ar[r]^-{\chi^*} &U\fg \ar[r]^-{\mu^*} & A}$$ provides commuting $G$-invariant differential operators on $M$ (or elements of $A$), just as its classical analog provides $G$-invariant Poisson commuting functions on $X$. By passing to arbitrary (classical or quantum) Hamiltonian reductions by subgroups of $G$, we thus have a source of commuting Hamiltonians on many spaces, and thus a source of (classical or quantum) integrable systems. This method was used by Kostant and others in the solutions of Toda, Calogero-Moser and other integrable systems (see e.g.~\cite{Adler, Symes,KKS,Kostant Toda}).
+
+A Hamiltonian $G$-action can be described as a Poisson map $X\to \fgx$ equipped with an 
+action of $T^*G$ (as a groupoid over $\fgx$), or equivalently via an action of the monoidal category $QCoh(T^*G)$ on $QCoh(X)$. The quantum formulation involves the monoidal category $\cD(G)$ of $\D$-modules on $G$, equipped with the structure of convolution -- the ``group algebra" of $G$ with $\cD$-module coefficients. It acts on $\Mod_{A}$ for any quantum Hamiltonian $G$-algebra as above. 
+
+
+
+\subsection{Integrating Hamiltonian Systems}\label{classical}
+It is natural to attempt to integrate the commuting Hamiltonian vector fields on $G$-spaces $X$ to a group action:
+
+\vskip.05in $\bullet$ {\bf Motivating Problem:}\hskip.1in{\em Provide a universal algebraic integration of the Casimir Hamiltonian flows.}
+\vskip.05in
+
+More precisely, we interpret the Hamiltonian flows associated to the map $\chi\circ\mu$ as an action of the cotangent bundle $T^*\fc\to \fc$ (as a family of abelian Lie algebras over $\fc$) on $X$. The problem then asks for a family of abelian algebraic groups (commutative group scheme) $J\to \fc$ with $Lie(J)\simeq T^*\fc$ together with an action $J\actson X$ (as schemes over $\fc$) extending the action of $T^*\fc$, for any $X$. 
+
+A solution to this problem follows from a fundamental construction of Ng\^o~\cite{Ngo}. Let $J\to \fc$ be the pullback to $\fc$ of the group scheme $I\to\fgx$ of centralizers, $I|_x=G_x$. $J$ is called the {\em group scheme of regular centralizers}: $J|_{\chi(x)}$ is the centralizer of $\kappa(\chi(x))$, a regular element with the same invariant polynomials as $x$ (it is canonically independent of such a choice). It follows from Kostant's results that 
+$$J\simeq N_\psi\backslash\backslash T^*G //_\psi N$$ is the Hamiltonian reduction of the groupoid $T^*G$ by $N$ at the character $\psi$ (which is now a group over $\fc$ rather than a groupoid). 
+Ng\^o observed that there is a unique homomorphism $\chi\inv(J)\to I$ of group schemes over $\fgx$, i.e. an algebraic family of homomorphisms $J_{\chi(x)}\to G_x$, such that on the regular locus we get the canonical isomorphism.
+This is a consequence of Hartogs extension: the complement of the regular locus has codimension greater than 1. For general $\fg$ there is no known direct description of Ng\^o's map outside the regular locus. Ng\^o's map gives the desired integration, since the fibers $\mu\inv(x)\subset X$ of the moment map are preserved by the stabilizers $G_x$. 
+
+Ng\^o's construction is crucial in the geometric formulation of endoscopy as a spectral decomposition problem for cohomology of Hitchin fibers and the ensuing proof of the Fundamental Lemma. 
+
+
+\subsection{The problem with shifts}
+The Harish Chandra system, the equation for joint eigenfunctions of the quantum Casimir operators, can be interpreted as a functor $$\Mod_{\cZ\fg}\longrightarrow \Mod_{A},$$ i.e. a construction of systems of differential equations from $\cZ\fg$-modules (or sheaves on $\fc$). However, unlike in the classical case when we have a map $X\to \fc$, the quantum phase space does not map to $\fc$: the category $\Mod_{A}$ is {\em not} a $\cZ\fg$-module category. Thus it does not make sense to ask for a category which is the ``quantum fiber" of $\Mod_{A}$ over a point of $\fc$: we can talk about eigen{\em functions} of $\cZ\fg$ but not of eigen{\em systems}. In particular the Harish Chandra systems associated to different collections of eigenvalues can become isomorphic! This is the phenomenon of shift maps.
+
+As an example, take $G=\Cx=M$, and consider the eigensystem on $M$ given by
+$$\cM_\lambda:\{z \frac{d}{dz}f=\lambda f\}$$ for $\lambda\in \CC$. However the modules $\cM_\lambda$ and $\cM_{\lambda+n}$ are isomorphic for any integer: the system up to gauge equivalence only depends on its {\em monodromy}, i.e. on $[\lambda]\in \CC/\Z$. Indeed the category of $\cD$-modules on $M$ is equivalent (by the Mellin transform) to the category of equivariant quasi coherent sheaves $QCoh(\CC)^{2\pi i\Z})$, which then acts on $\Mod_{A}$ for any quantum Hamiltonian $\Cx$-algebra $A$. 
+
+We thus have a natural quantum analog of the problem of integrating Casimir flows:
+
+\vskip.05in $\bullet$ {\bf Motivating Problem:}\hskip.1in{\em Describe the universal base of quantum Hamiltonian $G$-algebras $A$ (e.g. differential operators on $G$-spaces $M$): a tensor category
+acting on $\Mod_{A}$ (i.e. on systems of differential equations on $M$) defining a spectral decomposition into ``quantum fibers".
+}
+\vskip.05in
+
+In the classical limit $\hbar\to 0$, we would expect such a category to degenerate to the category $QCoh(J)$, a tensor (i.e. symmetric monoidal) category by convolution for the group structure,  which acts (via the Ng\^o action) on $QCoh(X)$ for any Hamiltonian $G$-space.
+
+\subsection{A solution} In this paper we provide a solution to this problem (while simultaneously providing a uniform, i.e., Hartogs-free, description of the Ng\^o action).
+
+\begin{definition}
+We define the {\em Kostant category} $\cK:=\cD(N_\psi\backslash\backslash G//_\psi N)$ to be the Whittaker Hecke category of $G$: the 
+quantum Hamiltonian reduction of the category $\cD(G)$ of $\cD$-modules on $G$ with respect to $N$ at the character $\psi$ on the left and right.
+Introducing $\hbar$ dependence we have a (flat) family $\cK_\hbar$ with $\cK_0\simeq QCoh(J)$.
+\end{definition}
+
+As with all Hecke categories, the Kostant category is naturally monoidal (and agrees with $QCoh(J)$ monodically at $\hbar=0$).
+The following theorem is however surprising to experts:
+
+\begin{theorem}\label{Kostant theorem}
+\begin{enumerate}
+\item $\cK$ has a canonical {\em symmetric} monoidal (i.e., $E_\infty$) structure.
+\item There is a canonical braided functor $\cK\to \cZ(\cD(G))$ to the Drinfeld center of $\cD(G)$, which at $\hbar=0$ becomes the Ng\^o action.
+\end{enumerate}
+\end{theorem}
+
+
+The Drinfeld center $\cZ(\cC)$ of any monoidal category is nontrivially braided, so that the analog of Kostant's proof of his theorem fails: there is a canonical functor $\cZ(\cD(G))\to \cK$ (as to any Hecke category) but it is far from an equivalence. In fact $\cK$ is closer to being a ``Lagrangian" in $\cZ(\cD(G))$ - a maximal subcategory on which the braiding vanishes.
+
+
+
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+
+
+
+
+\section{Conjectures on $\cK$}
+\subsection{Making $\cK$ concrete}
+
+The first problem about $\cK$ is to make its description more concrete.
+As in the abelian case, $\cK$ is expected to differ from $\Mod_{\cZ\fg}=QCoh(\fc)$ by translation invariance:
+
+\vskip.05in $\bullet$ {\bf Problem 1:}\hskip.1in{\em Identify $\cK$ with quasi coherent sheaves\footnote{The precise formulation of this problem is more subtle than indicated: while we impose ordinary equivariance with respect to the lattice part of $W^{aff}$, the finite Weyl group invariants are taken in the sense of GIT -- note that $\fc$ is the GIT quotient of $\fhx$ by $W$, not the stack $\fhx/W$.} on $\fC:=\fhx/W^{aff}$.}
+\vskip.05in
+
+This problem appears very tractable with our current techniques, using the translation action of finite dimensional representations of $G$ on the category of Whittaker $\fg$-modules (which is equivalent to $QCoh(\fc)$). 
+
+The main thrust of this proposal is to perform spectral decomposition with respect to the Kostant category in a variety of settings. 
+Given a module category $\cC$ for $\cK$ we can ask three kinds of questions:
+
+$\bullet$ Identify $\cK$-finite objects of $\cC$, i.e., informally objects with finite support on $\fC$.
+
+$\bullet$ Identify generalized $\cK$-eigenspaces, i.e., objects supported on formal neighborhoods of points of $\fC$.
+
+$\bullet$ Identify $\cK$-eigenobjects in $\cC$, with eigenvalue a tensor functor $\cK\to Vect_\CC$, i.e., evaluation at a point of $\fC$. 
+
+To make this more concrete we need to identify explicitly the idempotents in $\cK$, which correspond to formal completions at points of $\fC$, and the evaluation tensor functors (eigenvalues) on $\cK$. 
+
+
+\vskip.05in $\bullet$ {\bf Problem 2:}\hskip.1in{\em Identify the idempotents in $\cK$ associated to $W^{aff}$-orbits $[\lambda]$ in $\fhx$ with infinite Jordan-block modifications of the $\lambda$-monodromic Springer sheaf on $G$.}
+\vskip.05in
+
+\subsection{Kostant Harmonic Analysis and Langlands Parameters}
+The central action of the Kostant category means that many of the natural categories in geometric representation theory carry natural $\cK$-actions:
+
+\begin{corollary}[Theorem~\ref{Kostant theorem}] The categories of $\cD$-modules on any $G$-space, equivariant for any subgroup of $G$, carry an action of $\cK$ (commuting with any residual $G$- or Hecke symmetry), and so do the categories $\Mod_{U\fg}$ and $\Mod_{(\fg,K)}$.
+\end{corollary}
+
+\SG{This is just coming from the following, right: $\cK$ acts on $\cD(G)$-module categories, 
+and on $\HC$-module categories by virtue of $\cD(G)^G$ being the Drinfeld center of $\cD(G)$ and of $\HC$. 
+Presumably the two actions on $\cU\fg\module$ (which is both a $\cD(G)$ and an $\HC$-module category) agree?}\BZ{ Yes that's what I had in mind.}
+ 
+\vskip.05in $\bullet$ {\bf Problem 3:}\hskip.1in{\em Describe the spectral decomposition into $\cK$-eigencategories in some of the above examples.
+Relate the shift invariance to translation functors on representations and Opdam shift operators. Identify admissibility of $\cD$-modules in the sense of~\cite{ginzburg character} as finiteness under the action of $\cK$. }
+\vskip.05in
+
+For example the Beilinson-Bernstein localization of $U\fg$-modules as twisted $\D$-modules on the flag variety $G/B$ is $\cK$-equivariant, and the eigencategories correspond to fixing infinitesimal character or twisting parameter, while tensor products by finite dimensional representations or the Borel-Weil line bundles provide the shift symmetries. In the case of symmetric spaces one should have a concrete relation with Opdam's shift operators for hypergeometric systems. Admissible $\cD$-modules are defined by a finiteness with respect to the action of $\cZ\fg$, and the $\cK$ analog should be formal.
+
+The eigenvalues of Kostant modules provide a notion of Langlands parameters for categorical representations of $G$.
+ Since the quotient of $\fhx$ by the weight lattice is analytically equivalent to the Cartan subgroup $H^\vee\subset\Gv$ of the Langlands dual group, 
+ we find that analytically $\fC$ is identified with $H^\vee/W=\Gv//\Gv$, the variety of semisimple conjugacy classes in the dual group, or algebraically with the stack of regular $\Gv$-connections on the punctured disc.
+This is not a coincidence -- $\cK$ should provide a reductive group analog of the expected theory of Langlands parameters 
+for categorical representations of the loop group: 
+
+\begin{conjecture}[Gaitsgory] The Whittaker Hecke category for the loop group $LG$ (i.e. the ``affine Kostant category") is symmetric monoidal, and equivalent to $QCoh(Conn_{\Gv}(D^\times))$, quasi coherent sheaves on the stack of de Rham local Langlands parameters ($\Gv$ connections on the punctured disc).
+\end{conjecture}
+
+The conjecture is perhaps the main ingredient in the local geometric Langlands program, bridging categorical $LG$ actions to $\Gv$ connections. Our proof of commutativity of $\cK$ does not immediately generalize to the affine setting, but we hope a deeper and cleaner understanding of $\cK$ will prove useful in this regard. 
+
+\subsection{Character sheaves and central characters}
+One of the most interesting expected interactions of the Kostant category is with
+Lusztig's theory of character sheaves\cite{character
+  1, laumon}. These are geometric versions of characters, which are
+special $G$-equivariant $\cD$-modules on the group $G$, i.e. objects of $\cD(G/G)$. The fundamental
+example of a character sheaf is the Harish Chandra system (or Springer sheaf~\cite{HK}), the
+conjugation-invariant system of differential equations satisfied by
+distributional characters of infinite-dimensional representations of
+Lie groups. Lusztig explicitly constructed and classified the simple objects in the category of character sheaves 
+and used them in spectacular fashion
+to describe the characters of representations of finite groups of Lie type.
+
+Character sheaves can be assigned a (generalized) central character, which is a point in $\fC=\fhx/W^{aff}$ 
+very roughly describing the monodromy of the 
+sheaf on the regular semi simple locus, or in the case of the Harish Chandra system, the action of $\cZ\fg$ taken up to shifts (a nonabelian generalization of our example of shifts for $G=\Cx$). For example if this monodromy is unipotent we attach the trivial central character. 
+
+
+Character sheaves can be characterized microlocally~\cite{MV} as having singular support (``codirections of singularity") contained in
+the {\em nilpotent cone} (zero fiber of either projection $T^*G\to \fc$), or as {\em admissible} sheaves on $G/G$ as above. Thus by Problem 3 character sheaves are the finite length objects in $\cD(G/G)$ under the $\cK$ action. In other words, the Kostant category is precisely built to spectrally decompose $\cD(G/G)$ into character sheaves!
+The action of $\cK$ provides a much more precise (and natural) way to measure central character:
+
+\vskip.05in $\bullet$ {\bf Problem 4:}\hskip.1in{\em Identify the central character of a character sheaf with the generalized eigenvalue of $\cK$. Describe the condition on an object in $\cD(G/G)$ to be a Kostant eigensheaf, i.e., to be a character sheaf with strict central character. Does this decompose all of $\cD(G/G)$ into the semi simple categories of character sheaves classified by Lusztig?}
+\vskip.05in
+
+In other words, the Kostant eigensheaf condition on $\cD(G/G)$ should play the role of the Hecke eigensheaf condition in geometric Langlands, and pick out the distinguished objects (Lusztig's simple character sheaves).  
+
+
+\section{Character field theory and cohomology of character varieties}\label{TFT section}
+
+In this section I explain the topological field theory setup for the spectral decomposition problems of Section~\ref{Kostant section}, and use it to define a new spectral decomposition for cohomology of character varieties.
+
+\subsection{Character varieties and TFT} Given an affine algebraic group $G$ and 
+a topological surface $S$ the
+{\em character variety} or Betti space $\Loc_G(S)$ is the moduli stack of $G$-local systems on
+$S$, or equivalently the (derived version of the) stack of conjugacy classes of
+homomorphisms $$\Loc_G(S)=\{\pi_1(S)\to G\}/G.$$ 
+Character varieties are key players in many problems of
+physics, geometry and low-dimensional topology. 
+
+
+The work of Hausel, Rodriguez-Villegas and Letellier \cite{H,HRV,HLRV}
+has uncovered remarkable combinatorial patterns in the
+cohomology of the character varieties, leading to a series of striking
+conjectures for (refinements of) their Poincar\'e polynomials, including an identity relating Langlands dual character varieties and relations
+to Macdonald polynomials. A central technique is counting points over finite fields, i.e., points of character varieties $Loc_{G_q}(S)$ of the finite groups
+$G_q=G(\F_q)$. These counts are captured by a 2d TFT $Z_{G_q}$ (topological Yang-Mills), with the properties:
+
+ $\bullet$ To a closed surface, $Z_{G_q}$ assigns the
+(weighted) number of points of the orbifold of $G_q$-bundles over
+the surface:
+$$ Z_{G_q}(S)=\# \Loc_{G_q}(S)= \{\Hom(\pi_1(S),{G_q})/{G_q}\}\in
+  \CC
+$$ 
+
+$\bullet$ To a circle, $Z_{G_q}$ assigns the vector space of complex
+  class functions on ${G_q}$, $\CC[{G_q}\adjquot {{G_q}}]$.
+
+$\bullet$ To a point, $Z_{G_q}$ assigns the category
+  $\Rep^{fd}_\CC({G_q})$ of finite dimensional complex ${G_q}$-modules.
+
+
+
+\subsection{The character theory}\label{character theory} 
+In a preprint~\cite{character2} we introduce an extended ($2+\epsilon$)-dimensional oriented
+topological field theory $\cX_G$, the character TFT of $G$ (or rather a $\Cx$-equivariant family $\cX_{G,\hbar}$ for $\hbar\in \CC$) for a reductive group $G$ (and classical limit $\cX_{G,0}$). Here $2+\epsilon$ means we assign (dg) vector spaces to surfaces but don't in general get well defined numbers for three manifolds. It can be interpreted as a topologically twisted version of 3d $\cN=8$ super-Yang-Mills theory, which is a dimensional reduction (i.e. decategorification) of the Kapustin-Witten 4d TFT~\cite{KW}, the setting for geometric Langlands, and a categorification of 2d Yang-Mills $Z_{G_q}$. Following the cobordism hypothesis~\cite{jacob TFT}, a TFT is uniquely determined on framed manifolds by its value on a point (the higher category of boundary conditions), subject to satisfying a series of finiteness conditions. One then looks for suitable ``Calabi-Yau" structure which extends the theory to all oriented manifolds.
+
+The character theory is defined precisely so that Hamiltonian $G$-spaces define boundary conditions for $\cX_{G,0}$ and their quantum analogues provide boundary conditions for $\cX_G$. In other words, we define 
+$$\cX_{G,\hbar}(pt) = \D_\hbar(G)\module,$$ the 2-category of module categories for $QCoh(T^*G)$ (``Dolbeault $G$-categories") for $\hbar=0$ and for $\D(G)$ (``de Rham $G$ categories") for $\hbar=1$. 
+
+\begin{theorem}\label{TFT theorem} The 2-categories $\cX_{G,0}(pt)$ and $\cX_G(pt)$ of Dolbeault and de Rham $G$-categories satisfy the finiteness conditions and canonically carry the structure
+to define oriented $(2+\epsilon)$-dimensional TFTs. Moreover we have equivalences
+\begin{enumerate} 
+\item[$\bullet$] $\cX_G(S^1)\simeq \D(G/G)$ (while $\cX_{G,0}(S^1)\simeq QCoh(T^*G/G)$),
+\item[$\bullet$] $\cX_G(S)\simeq H_*^{BM}(\Loc_G(S))$, the Borel-Moore homology on the character variety, for $S$ an oriented closed surface (while $\cX_{G,0}(S)$ recovers the Dolbeault cohomology of $\Loc_G(S)$). 
+\end{enumerate}
+\end{theorem}
+
+Thus we access the homology of character varieties directly via 3d TFT, rather than accessing their point counts via 2d TFT. Our hope is to use structures associated with the character theory to access some of the conjectures of Hausel et al. on the level of Poincar\'e polynomials, in particular the Langlands duality (see below).
+
+The result is an improvement on~\cite{character}, in which we established analogous finiteness and Calabi-Yau
+properties for the Hecke category $\D(B\bs G/B)$ (and its monodromic version). 
+In that case the theory evaluated on $S^1$ outputted the category of unipotent character sheaves, leading to the nomenclature {\em unipotent character theory} (or character theory at fixed monodromy). 
+
+
+\subsection{Character theory as a family}
+
+The central action of the Kostant category on $\D(G)$ makes the entire character theory $\cK$-linear, i.e. a family of topological field theories over the spectrum $\fC$ of $\cK$. 
+
+
+More concretely this means that we get a topological field theory for any point of $\fC$, i.e., a field theory analog of Problem 3:
+
+\vskip.05in $\bullet$ {\bf Problem 6:}\hskip.1in{\em Show that the unipotent character theory of~\cite{character} (and its monodromic versions) are obtained from $\cX_G$ by imposing a generalized eigenvalue for $\cK$.}
+\vskip.05in
+
+Applying the spectral decomposition with respect to $\cK$ for $\cX_G(S^1)$ recovers our discussion of character sheaves above. 
+
+\subsection{Eigenhomology}
+The really new output of combining the Kostant category construction with the character theory comes at the level of surfaces:
+
+\begin{corollary}[Theorems~\ref{Kostant theorem} and~\ref{TFT theorem}] The homology of $\Loc_G(S)$ sheafifies over $\fC$: it is realized canonically as the global sections (i.e., Hom space from the unit) of an object of the Kostant category $\cK$.
+\end{corollary}
+
+(More precisely, as with Hecke operators in geometric Langlands, 
+we have such a realization for a choice of point $x\in S$, depending locally constantly on $x$.)
+
+Thus we can ask our three spectral decomposition questions for homology of character varieties.
+
+\vskip.05in $\bullet$ {\bf Problem 7:}\hskip.1in{\em Identify the $\cK$-finite (``admissible") part of $H_*^{BM}(Loc_G(S))$ as chains with {\em nilpotent micro-local support}. }
+\vskip.05in
+
+The notion of singular support of a chain on a local complete intersection variety was introduced in discussions with Nadler as a decategorified analog of singular support theory for coherent sheaves~\cite{AG}. It allows to interpolate between homology (all chains) and cohomology (chains with zero singular support), see~\cite{micro chains}.
+
+Next, it follows from Problem 6 that the $\cK$-unipotent (trivial generalized eigenvalue) part of $H_*^{BM}(Loc_G(S))$ is the output on $S$ of the unipotent character theory. From Problem 2 this can be calculated by modifying the homology of the character variety by an idempotent (a generalized Springer sheaf) inserted at a point of $S$. 
+
+The fibers of $H_*^{BM}(Loc_G(S))$ at points of $\fC$ define new invariants, the {\em Kostant eigenhomologies} of the character variety.
+
+\vskip.05in $\bullet$ {\bf Problem 8:}\hskip.1in{\em Provide a direct geometric characterization of Kostant eigenhomology of character varieties.}
+\vskip.05in
+
+\subsection{3-manifolds}
+Problem 5, the expectation that the Kostant eigencategories in $\cD(G)$ are close to combinatorially understood fusion categories, has a remarkable TFT interpretation. Fusion categories, such as the convolution categories of vector bundles on finite groups, are {\em 3-dualizable} in the sense of the cobordism hypothesis~\cite{DSS}, in other words they define invariants of framed 3-manifolds (or with suitable ribbon structures, of all oriented 3-manifolds). The category $\cD(G)$ defining the character theory is certainly not 3-dualizable, i.e. the character theory does {\em not} extend to 3-manifolds: for example to $S\times S^1$ for a surface $S$ we would have to assign the Euler characteristic of the homology of the Artin stack $Loc_G(S)$, which does not converge -- rather one should be looking for generating series for graded dimensions such as the E-polynomial and mixed Hodge polynomial, as in~\cite{HLRV}. 
+
+\vskip.05in $\bullet$ {\bf Problem 9:}\hskip.1in{\em Is the character theory 3-dualizable relative to $\cK$, i.e. as a family of field theories over $\fC$? . }
+\vskip.05in
+
+
+
+
+
+
+
+
+
+
